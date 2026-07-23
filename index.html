@@ -21,7 +21,6 @@
     overflow-x: auto;
   }
 
-  /* COPYRIGHT SCREEN */
   .copyright-screen {
     position: fixed; top: 0; left: 0;
     width: 100%; height: 100%;
@@ -39,7 +38,6 @@
   }
   .copyright-screen.hidden { opacity: 0; pointer-events: none; }
 
-  /* KEY SCREEN */
   .key-screen {
     position: fixed; top: 0; left: 0;
     width: 100%; height: 100%;
@@ -75,7 +73,6 @@
   .access-btn:hover { background-color: #ff4d4d; color: #000; }
   .ask-key { margin-top: 12px; color: #888; font-size: 13px; }
 
-  /* TERMINAL */
   .terminal { display: none; }
   .terminal.active { display: block; }
 
@@ -119,6 +116,10 @@
   .tool-ascii.hackingtool { background: radial-gradient(circle at center, #88ff88, #00cc44, #006622); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
   .tool-ascii.sherlock { background: radial-gradient(circle at center, #ffffff, #aaccff, #4488ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
   .tool-ascii.checkercpf { background: radial-gradient(circle at center, #ffcc00, #ff6600, #cc3300); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .tool-ascii.toolss { background: radial-gradient(circle at center, #ff99cc, #ff3366, #990033); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .tool-ascii.doxing { background: radial-gradient(circle at center, #ff4444, #aa0000, #440000); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .tool-ascii.axom { background: radial-gradient(circle at center, #66ffff, #0099cc, #003366); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .tool-ascii.cariddi { background: radial-gradient(circle at center, #ccff66, #66cc00, #336600); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
 
   .tool-info { margin-top: 10px; }
   .tool-info .gh-label { color: #d4a017; }
@@ -133,7 +134,6 @@
   .info-item .il { color: #d4a017; }
   .info-item .iv { color: #ffffff; }
 
-  /* VIDEO BUTTONS */
   .video-section { margin-top: 20px; }
   .video-btn {
     display: inline-block;
@@ -154,13 +154,34 @@
     color: #000;
     text-decoration: none;
   }
-  .video-note {
-    color: #888;
-    font-size: 12px;
-    margin-top: 4px;
+
+  /* FOR LAZY PEOPLE section */
+  .lazy-section {
+    margin-top: 20px;
+    padding: 12px 14px;
+    background-color: #1a1a1a;
+    border-left: 3px solid #00ff88;
+    border-radius: 4px;
+  }
+  .lazy-label {
+    color: #00ff88;
+    font-weight: bold;
+    margin-bottom: 8px;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .lazy-cmd {
+    color: #ffffff;
+    background-color: #0a0a0a;
+    padding: 8px 12px;
+    border-radius: 4px;
+    display: block;
+    word-break: break-all;
+    font-size: 13px;
+    border: 1px dashed #333;
   }
 
-  /* OTHERS PAGE - CREATOR NAMES GRADIENT */
   .creator-name {
     background: linear-gradient(90deg, #ff6666, #cc0000, #880000);
     -webkit-background-clip: text;
@@ -174,14 +195,9 @@
     font-size: 18px;
     margin-bottom: 10px;
   }
-  .others-item {
-    margin: 6px 0;
-  }
-  .others-label {
-    color: #d4a017;
-  }
+  .others-item { margin: 6px 0; }
+  .others-label { color: #d4a017; }
 
-  /* DISCORD CARD */
   .discord-card {
     position: fixed;
     top: 40px; right: 40px;
@@ -196,7 +212,6 @@
     display: none;
   }
   .discord-card.show { display: block; }
-
   .dc-banner {
     height: 105px; width: 100%;
     background-color: #1a1a1a;
@@ -228,99 +243,43 @@
     border-radius: 8px;
     padding: 14px;
   }
-  .dc-name {
-    font-weight: 900;
-    font-size: 22px;
-    color: #ffffff;
-    letter-spacing: 0.3px;
-  }
-  .dc-username {
-    font-size: 14px; color: #ffffff;
-    margin-top: 2px; font-weight: 500;
-  }
-  .dc-tag {
-    font-size: 13px; color: #b5bac1;
-    margin-top: 6px; font-weight: 600;
-    text-transform: uppercase; letter-spacing: 0.5px;
-  }
+  .dc-name { font-weight: 900; font-size: 22px; color: #ffffff; letter-spacing: 0.3px; }
+  .dc-username { font-size: 14px; color: #ffffff; margin-top: 2px; font-weight: 500; }
+  .dc-tag { font-size: 13px; color: #b5bac1; margin-top: 6px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
   .dc-status-box {
-    margin-top: 10px;
-    background-color: #1e1f22;
-    color: #dbdee1;
-    padding: 6px 10px;
-    border-radius: 6px;
-    font-size: 13px;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px; font-weight: 500;
+    margin-top: 10px; background-color: #1e1f22; color: #dbdee1;
+    padding: 6px 10px; border-radius: 6px; font-size: 13px;
+    display: inline-flex; align-items: center; gap: 6px; font-weight: 500;
   }
-  .dc-divider {
-    height: 1px;
-    background-color: #3f4147;
-    margin: 12px 0;
-  }
+  .dc-divider { height: 1px; background-color: #3f4147; margin: 12px 0; }
   .dc-badges {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 4px;
-    background-color: #1e1f22;
-    padding: 6px 8px;
-    border-radius: 6px;
-    align-items: center;
+    display: flex; flex-wrap: wrap; gap: 4px;
+    background-color: #1e1f22; padding: 6px 8px;
+    border-radius: 6px; align-items: center;
   }
-  .dc-badge-img {
-    width: 22px; height: 22px;
-    object-fit: contain;
-  }
-  .dc-about-label {
-    font-size: 12px; font-weight: 700; color: #ffffff;
-    text-transform: uppercase; letter-spacing: 0.5px;
-    margin-top: 12px; margin-bottom: 6px;
-  }
-  .dc-about {
-    font-size: 14px; color: #dbdee1; line-height: 1.4;
-  }
-  .dc-member-label {
-    font-size: 12px; font-weight: 700; color: #ffffff;
-    text-transform: uppercase; letter-spacing: 0.5px;
-    margin-top: 14px; margin-bottom: 4px;
-  }
-  .dc-member-date {
-    font-size: 14px; color: #dbdee1;
-  }
-  .dc-roles-label {
+  .dc-badge-img { width: 22px; height: 22px; object-fit: contain; }
+  .dc-about-label, .dc-member-label, .dc-roles-label {
     font-size: 12px; font-weight: 700; color: #ffffff;
     text-transform: uppercase; letter-spacing: 0.5px;
     margin-top: 14px; margin-bottom: 6px;
   }
-  .dc-roles {
-    display: flex; flex-wrap: wrap; gap: 4px;
-  }
+  .dc-about-label { margin-top: 12px; }
+  .dc-about { font-size: 14px; color: #dbdee1; line-height: 1.4; }
+  .dc-member-date { font-size: 14px; color: #dbdee1; }
+  .dc-roles { display: flex; flex-wrap: wrap; gap: 4px; }
   .dc-role {
     background-color: #1e1f22;
     padding: 3px 8px; border-radius: 4px;
-    font-size: 12px; font-weight: 500;
-    color: #dbdee1;
+    font-size: 12px; font-weight: 500; color: #dbdee1;
     display: inline-flex; align-items: center; gap: 5px;
   }
-  .dc-role .dot {
-    width: 8px; height: 8px;
-    border-radius: 50%; display: inline-block;
-  }
-  .dc-role.tuba-rgb {
-    color: #fff;
-    animation: rgbText 4s linear infinite;
-  }
-  .dc-role.tuba-rgb .dot {
-    animation: rgbDot 4s linear infinite;
-  }
+  .dc-role .dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
+  .dc-role.tuba-rgb { color: #fff; animation: rgbText 4s linear infinite; }
+  .dc-role.tuba-rgb .dot { animation: rgbDot 4s linear infinite; }
   @keyframes rgbText {
-    0%   { color: #ff0000; }
-    16%  { color: #ff8800; }
-    33%  { color: #ffee00; }
-    50%  { color: #00ff44; }
-    66%  { color: #00aaff; }
-    83%  { color: #aa00ff; }
+    0%   { color: #ff0000; } 16%  { color: #ff8800; }
+    33%  { color: #ffee00; } 50%  { color: #00ff44; }
+    66%  { color: #00aaff; } 83%  { color: #aa00ff; }
     100% { color: #ff0000; }
   }
   @keyframes rgbDot {
@@ -333,7 +292,6 @@
     100% { background-color: #ff0000; box-shadow: 0 0 6px #ff0000; }
   }
 
-  /* MUSIC BUTTON */
   .music-btn {
     position: fixed;
     bottom: 20px; left: 20px;
@@ -343,16 +301,12 @@
     border-radius: 50%;
     display: none;
     justify-content: center; align-items: center;
-    cursor: pointer;
-    z-index: 100;
+    cursor: pointer; z-index: 100;
     transition: background-color 0.3s, border-color 0.3s, transform 0.15s;
   }
   .music-btn.visible { display: flex; }
   .music-btn:hover { transform: scale(1.08); }
-  .music-btn svg {
-    width: 24px; height: 24px;
-    fill: #ffffff; transition: fill 0.3s;
-  }
+  .music-btn svg { width: 24px; height: 24px; fill: #ffffff; transition: fill 0.3s; }
   .music-btn.muted {
     background-color: #cc0000;
     border-color: #ff4d4d;
@@ -362,10 +316,8 @@
 
   @media (max-width: 900px) {
     .discord-card {
-      position: relative;
-      top: auto; right: auto;
-      margin: 20px auto;
-      display: none;
+      position: relative; top: auto; right: auto;
+      margin: 20px auto; display: none;
     }
     .discord-card.show { display: block; }
   }
@@ -390,7 +342,6 @@
     <p class="ask-key">Ask the creator for the key</p>
   </div>
 
-  <!-- BACKGROUND MUSIC -->
   <audio id="bgMusic" loop>
     <source src="truth yandere.mp3" type="audio/mpeg">
   </audio>
@@ -406,9 +357,7 @@
       <div class="dc-name">TubaSama</div>
       <div class="dc-username">tubarao109875</div>
       <div class="dc-tag">TUBA</div>
-      <div class="dc-status-box">
-        <span style="color:#e67e22;">🍂</span> COZY
-      </div>
+      <div class="dc-status-box"><span style="color:#e67e22;">🍂</span> COZY</div>
       <div class="dc-divider"></div>
       <div class="dc-badges">
         <img src="Staff.png" class="dc-badge-img" title="Discord Staff">
@@ -447,7 +396,6 @@
   <!-- MAIN TERMINAL -->
   <div class="terminal" id="mainTerminal">
 
-    <!-- Main Menu -->
     <div id="mainMenu">
 <pre class="ascii-art">
  ████████╗██╗   ██╗██████╗  █████╗
@@ -462,7 +410,7 @@
  ██║     ██║██████╔╝██████╔╝███████║██████╔╝ ╚████╔╝
  ██║     ██║██╔══██╗██╔══██╗██╔══██║██╔══██╗  ╚██╔╝
  ███████╗██║██████╔╝██║  ██║██║  ██║██║  ██║   ██║
- ╚══════╝╚═╝╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝   ╚═╝ <span class="version-tag">v7</span>
+ ╚══════╝╚═╝╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝   ╚═╝ <span class="version-tag">v8</span>
 </pre>
 
       <div class="coded">
@@ -471,7 +419,7 @@
       </div>
 
       <div class="info-line">
-        <div><span class="label">Version:</span> <span class="value">7</span></div>
+        <div><span class="label">Version:</span> <span class="value">8</span></div>
         <div><span class="label">Author:</span> <span class="value">tubarao109875</span></div>
       </div>
 
@@ -486,6 +434,10 @@
       <div class="menu-option"><span class="num">[04]</span> <span class="name">HackingTool</span></div>
       <div class="menu-option"><span class="num">[05]</span> <span class="name">Sherlock</span></div>
       <div class="menu-option"><span class="num">[06]</span> <span class="name">CheckerCPF</span></div>
+      <div class="menu-option"><span class="num">[07]</span> <span class="name">TOOLSS (Termux Toolkit)</span></div>
+      <div class="menu-option"><span class="num">[08]</span> <span class="name">Doxing Tool (Termux)</span></div>
+      <div class="menu-option"><span class="num">[09]</span> <span class="name">AXOM (Termux)</span></div>
+      <div class="menu-option"><span class="num">[10]</span> <span class="name">Cariddi (Kali Linux)</span></div>
 
       <div class="separator">──────────────────────────────────────────────────────────────────────────────</div>
 
@@ -501,7 +453,7 @@
     <div class="tool-page" id="page00">
       <div class="info-page-title">╔══ INFORMATION ══╗</div>
       <div class="info-item"><span class="il">Project:</span> <span class="iv">Tuba Library</span></div>
-      <div class="info-item"><span class="il">Version:</span> <span class="iv">7</span></div>
+      <div class="info-item"><span class="il">Version:</span> <span class="iv">8</span></div>
       <div class="info-item"><span class="il">Author:</span> <span class="iv">tubarao109875</span> &nbsp;&nbsp; <span class="il">Contributor/Repo Finder:</span> <span class="iv">Wsp Kira</span></div>
       <div class="info-item"><span class="il">GitHub:</span> <span class="iv"><a href="https://github.com/tubarao109875-status/tubarao109875.github.io" target="_blank">https://github.com/tubarao109875-status/tubarao109875.github.io</a></span></div>
       <div class="info-item"><span class="il">Discord:</span> <span class="iv"><a href="https://discord.com/users/1485464472976887829" target="_blank">tubarao109875</a></span></div>
@@ -554,13 +506,6 @@
  ║╔══╝║╚═╝║╚══╗║  ║║      ║║║║║║║╚═╝║ ║║ ║║
  ║║   ║╔═╗║║╚═╝║  ║║      ║║║║║║║╔═╗║╔╣╠╗║╚═╗
  ╚╝   ╚╝ ╚╝╚═══╝  ╚╝      ╚╝╚╝╚╝╚╝ ╚╝╚══╝╚══╝
-
- ╔══╗ ╔═══╗╔═╗╔═╗╔══╗ ╔═══╗╔═══╗
- ║╔╗║ ║╔═╗║║║╚╝║║║╔╗║ ║╔══╝║╔═╗║
- ║╚╝╚╗║║ ║║║╔╗╔╗║║╚╝╚╗║╚══╗║╚═╝║
- ║╔═╗║║║ ║║║║║║║║║╔═╗║║╔══╝║╔╗╔╝
- ║╚═╝║║╚═╝║║║║║║║║╚═╝║║╚══╗║║║╚╗
- ╚═══╝╚═══╝╚╝╚╝╚╝╚═══╝╚═══╝╚╝╚═╝
 </pre>
       <div class="tool-info">
         <span class="gh-label">github:</span> <a href="https://github.com/juzeon/fast-mail-bomber" target="_blank">https://github.com/juzeon/fast-mail-bomber</a>
@@ -624,13 +569,6 @@
  ██╔══██║██╔══██║██║     ██╔═██╗ ██║██║╚████║██║   ██║
  ██║  ██║██║  ██║╚██████╗██║  ██╗██║██║ ╚███║╚██████╔╝
  ╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝╚═╝  ╚═╝╚═╝╚═╝  ╚══╝ ╚═════╝
-
- ████████╗ ██████╗  ██████╗ ██╗
- ╚══██╔══╝██╔═══██╗██╔═══██╗██║
-    ██║   ██║   ██║██║   ██║██║
-    ██║   ██║   ██║██║   ██║██║
-    ██║   ╚██████╔╝╚██████╔╝███████╗
-    ╚═╝    ╚═════╝  ╚═════╝ ╚══════╝
 </pre>
       <div class="tool-info">
         <span class="gh-label">github:</span> <a href="https://github.com/mishakorzik/AllHackingTools" target="_blank">https://github.com/mishakorzik/AllHackingTools</a>
@@ -679,7 +617,7 @@
       <div class="video-section">
         <div style="color:#00ff88; font-weight:bold; margin-bottom:6px;">Video Tutorial:</div>
         <a href="https://www.youtube.com/watch?v=24xBAHDfLA8" target="_blank" class="video-btn">▶ Watch on YouTube</a>
-        <a href="https://rr11---sn-pmcg-bg0k.googlevideo.com/videoplayback?expire=1784798928&ei=cIphatDqBZ_cp-oPjbzggAo&ip=45.39.50.191&id=o-ADtIcjGq3pv2aCvXHy3H5CM7a1aPhJUAiWhL3Ez7aZzy&itag=18&source=youtube&requiressl=yes&xpc=EgVo2aDSNQ%3D%3D&rms=au%2Cau&bui=AZFlqhNynHyIjwqc1jvq4YPiTgX7Ij_HjCYbBiIqTPwLwa62Rd7_6c-fx9SJIVhbzL2JtMprk7NmMKBF&spc=SQ-uml9ZNd_RmX4jX68jILegEaL_uUT6w7q6JMjca5LRxdqpBLJG3HVtKSB-eoTfGAE&vprv=1&svpuc=1&mime=video%2Fmp4&rqh=1&cnr=14&ratebypass=yes&dur=338.918&lmt=1780939055630291&fexp=51565115&c=ANDROID&txp=5309224&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cxpc%2Cbui%2Cspc%2Cvprv%2Csvpuc%2Cmime%2Crqh%2Ccnr%2Cratebypass%2Cdur%2Clmt&sig=AE0s2JYwRAIgWp7S8lyvlmoG9IlczIPamVzNUGiWA_DPQZk7r9SYBXMCIHpFoOl634Q4O-3WCz8aiSwJtmygdmVWde208LYGBpGk&redirect_counter=1&rm=sn-aigezd7z&rrc=104&req_id=f7afadc57689a3ee&cms_redirect=yes&cmsv=e&cps=0&ipbypass=yes&met=1784777336,&mh=xT&mip=190.111.129.35&mm=31&mn=sn-pmcg-bg0k&ms=au&mt=1784777133&mv=u&mvi=11&pl=23&lsparams=cps,ipbypass,met,mh,mip,mm,mn,ms,mv,mvi,pl,rms&lsig=APaTxxMwRQIgNc4cFj0lOaGrtluKx3zockpowWT1b_yDTYQDOPd5g3wCIQCz99Ded49whAkMkr5oQalYrdSDWXvVfqzIU--CUuZblQ%3D%3D" target="_blank" class="video-btn">▶ Direct Video (if YouTube is down)</a>
+        <a href="https://rr11---sn-pmcg-bg0k.googlevideo.com/videoplayback?expire=1784798928&ei=cIphatDqBZ_cp-oPjbzggAo&ip=45.39.50.191&id=o-ADtIcjGq3pv2aCvXHy3H5CM7a1aPhJUAiWhL3Ez7aZzy&itag=18&source=youtube&requiressl=yes&xpc=EgVo2aDSNQ%3D%3D&rms=au%2Cau&bui=AZFlqhNynHyIjwqc1jvq4YPiTgX7Ij_HjCYbBiIqTPwLwa62Rd7_6c-fx9SJIVhbzL2JtMprk7NmMKBF&spc=SQ-uml9ZNd_RmX4jX68jILegEaL_uUT6w7q6JMjca5LRxdqpBLJG3HVtKSB-eoTfGAE&vprv=1&svpuc=1&mime=video%2Fmp4&rqh=1&cnr=14&ratebypass=yes&dur=338.918&lmt=1780939055630291&fexp=51565115&c=ANDROID&txp=5309224&sig=AE0s2JYwRAIgWp7S8lyvlmoG9IlczIPamVzNUGiWA_DPQZk7r9SYBXMCIHpFoOl634Q4O-3WCz8aiSwJtmygdmVWde208LYGBpGk" target="_blank" class="video-btn">▶ Direct Video (if YouTube is down)</a>
       </div>
       <div class="separator">────────────────────────────────────────────</div>
       <div class="back-btn">Type <span>"back"</span> to return to menu</div>
@@ -698,13 +636,6 @@
  ██║     ██╔══██║██╔══╝  ██║     ██╔═██╗ ██╔══╝  ██╔══██╗
  ╚██████╗██║  ██║███████╗╚██████╗██║  ██╗███████╗██║  ██║
   ╚═════╝╚═╝  ╚═╝╚══════╝ ╚═════╝╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝
-
-  ██████╗██████╗ ███████╗
- ██╔════╝██╔══██╗██╔════╝
- ██║     ██████╔╝█████╗
- ██║     ██╔═══╝ ██╔══╝
- ╚██████╗██║     ██║
-  ╚═════╝╚═╝     ╚═╝
 </pre>
       <div class="tool-info">
         <span class="gh-label">github:</span> <span style="color:#888;">No repository — Termux-based tool</span>
@@ -720,13 +651,180 @@
       <div class="video-section">
         <div style="color:#00ff88; font-weight:bold; margin-bottom:6px;">Video Tutorial:</div>
         <a href="https://www.youtube.com/watch?v=nlYHutg8kqU" target="_blank" class="video-btn">▶ Watch on YouTube</a>
-        <a href="https://rr2---sn-pmcg-bg0s.googlevideo.com/videoplayback?expire=1784798821&ei=BYphasz1IJnJ1sQP6vm38Ak&ip=23.129.253.223&id=o-AGDAbqGlDshtHISQ367ZD92EcuSmsenJGyzJe06xJMAw&itag=18&source=youtube&requiressl=yes&xpc=EgVo2aDSNQ%3D%3D&bui=AZFlqhNlsq-qqrsR5pchWT7ds25uJNupaxIBitPnN-93ltb9gFd9vbs_WQKQx3BU-jUNF_qzOzE7RwEa&spc=SQ-umnFb8DbdaiQqQMbWippAaW5W4lqFIH9iqKV7ZZVQZNVsISF4TqUAqrI-Yn-kTbA&vprv=1&svpuc=1&mime=video%2Fmp4&rqh=1&cnr=14&ratebypass=yes&dur=154.296&lmt=1763624712683056&fexp=51565116&c=ANDROID&txp=6310224&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cxpc%2Cbui%2Cspc%2Cvprv%2Csvpuc%2Cmime%2Crqh%2Ccnr%2Cratebypass%2Cdur%2Clmt&sig=AE0s2JYwRQIhALZxmHScGmgFDR8wgsmGTqprecZZZhO5NMNu5pJK43VmAiBJfJJ8Af2XPdDzdzXTvrdtWDQS5G20kt_3hqUcOvjaAQ%3D%3D&rm=sn-bg0ess7s,sn-nva0j5voxu-hb4e7e&rrc=104,110&req_id=364e98e09cf5a3ee&cps=0&ipbypass=yes&redirect_counter=2&cms_redirect=yes&cmsv=e&met=1784777233,&mh=EC&mip=190.111.129.35&mm=29&mn=sn-pmcg-bg0s&ms=rdu&mt=1784776858&mv=m&mvi=2&pl=24&rms=rdu,au&lsparams=cps,ipbypass,met,mh,mip,mm,mn,ms,mv,mvi,pl,rms&lsig=APaTxxMwRQIgStkYukL_eLYTKvB2oyAheoOKAI5nXAJuizOKafijZHYCIQC0dFqfYk__rJBxU3te3EvbNpmkujbxSxUe5dnlrcSCjA%3D%3D" target="_blank" class="video-btn">▶ Direct Video (if YouTube is down)</a>
+        <a href="https://rr2---sn-pmcg-bg0s.googlevideo.com/videoplayback?expire=1784798821&ei=BYphasz1IJnJ1sQP6vm38Ak&ip=23.129.253.223&id=o-AGDAbqGlDshtHISQ367ZD92EcuSmsenJGyzJe06xJMAw&itag=18&source=youtube&requiressl=yes&xpc=EgVo2aDSNQ%3D%3D&bui=AZFlqhNlsq-qqrsR5pchWT7ds25uJNupaxIBitPnN-93ltb9gFd9vbs_WQKQx3BU-jUNF_qzOzE7RwEa&spc=SQ-umnFb8DbdaiQqQMbWippAaW5W4lqFIH9iqKV7ZZVQZNVsISF4TqUAqrI-Yn-kTbA&vprv=1&svpuc=1&mime=video%2Fmp4&rqh=1&cnr=14&ratebypass=yes&dur=154.296&lmt=1763624712683056&fexp=51565116&c=ANDROID&txp=6310224&sig=AE0s2JYwRQIhALZxmHScGmgFDR8wgsmGTqprecZZZhO5NMNu5pJK43VmAiBJfJJ8Af2XPdDzdzXTvrdtWDQS5G20kt_3hqUcOvjaAQ%3D%3D" target="_blank" class="video-btn">▶ Direct Video (if YouTube is down)</a>
       </div>
       <div class="separator">────────────────────────────────────────────</div>
       <div class="back-btn">Type <span>"back"</span> to return to menu</div>
       <div class="terminal-input-line">
         <span class="prompt">╰─&gt; ():</span>
         <input type="text" class="terminal-input page-input" data-page="page06" autocomplete="off">
+      </div>
+    </div>
+
+    <!-- PAGE 07: TOOLSS -->
+    <div class="tool-page" id="page07">
+<pre class="tool-ascii toolss">
+ ████████╗ ██████╗  ██████╗ ██╗     ███████╗███████╗
+ ╚══██╔══╝██╔═══██╗██╔═══██╗██║     ██╔════╝██╔════╝
+    ██║   ██║   ██║██║   ██║██║     ███████╗███████╗
+    ██║   ██║   ██║██║   ██║██║     ╚════██║╚════██║
+    ██║   ╚██████╔╝╚██████╔╝███████╗███████║███████║
+    ╚═╝    ╚═════╝  ╚═════╝ ╚══════╝╚══════╝╚══════╝
+</pre>
+      <div class="tool-info">
+        <span class="gh-label">github:</span> <a href="https://github.com/AnonHackerr/toolss" target="_blank">https://github.com/AnonHackerr/toolss</a>
+      </div>
+      <div class="how-to-use">
+        <div class="how-label">Info how to use:</div>
+        <div class="platform">Termux (Android):</div>
+        <div class="cmd">pkg update && pkg upgrade -y</div>
+        <div class="cmd">pkg install git python -y</div>
+        <div class="cmd">git clone https://github.com/AnonHackerr/toolss.git</div>
+        <div class="cmd">cd toolss</div>
+        <div class="cmd">bash install.sh</div>
+        <div class="cmd">python toolss.py</div>
+      </div>
+      <div class="video-section">
+        <div style="color:#00ff88; font-weight:bold; margin-bottom:6px;">Video Tutorial:</div>
+        <a href="https://www.youtube.com/watch?v=yendaKe1OXc" target="_blank" class="video-btn">▶ Watch on YouTube</a>
+        <a href="https://rr2---sn-bg0e6ne6.googlevideo.com/videoplayback?expire=1784804653&ei=zaBhasvpEaf2xN8PmZyh0As&ip=217.198.177.25&id=o-AOPCGi2n5n7qiUH_qAS0Ybxuqpn3joIXrvLTNAne-aLB&itag=18&source=youtube&requiressl=yes&xpc=EgVo2aDSNQ%3D%3D&rms=au%2Cau&bui=AZFlqhO-AdOT4tRIwjUuV-G2AT4NXcbYXpxXZ4E_ExQLZ9MOU44C4SiJlffN1KeF0gjawcXIHk-bzl1_&spc=SQ-umjtR4AsTRaTydSjxVAinh8zLpQTvzIwBt0VKBfwl_eAgL4McJ-xqMBkRGappA4c&vprv=1&svpuc=1&mime=video%2Fmp4&rqh=1&cnr=14&ratebypass=yes&dur=87.469&lmt=1759150425833731&fexp=51565115,51992867&c=ANDROID&txp=6218224&sig=AE0s2JYwRQIgIJcgQEZqpuPTcgwTBfqJTPWOg8tcHBjqE-Yyn4iYA1wCIQDouNSd--sNYpsn2QohTkedvvMM0waqTGJZjza6ofuN0A%3D%3D" target="_blank" class="video-btn">▶ Direct Video (if YouTube is down)</a>
+      </div>
+      <div class="lazy-section">
+        <div class="lazy-label">⚡ For lazy people:</div>
+        <code class="lazy-cmd">git clone https://github.com/AnonHackerr/toolss.git</code>
+      </div>
+      <div class="separator">────────────────────────────────────────────</div>
+      <div class="back-btn">Type <span>"back"</span> to return to menu</div>
+      <div class="terminal-input-line">
+        <span class="prompt">╰─&gt; ():</span>
+        <input type="text" class="terminal-input page-input" data-page="page07" autocomplete="off">
+      </div>
+    </div>
+
+    <!-- PAGE 08: Doxing Tool -->
+    <div class="tool-page" id="page08">
+<pre class="tool-ascii doxing">
+ ██████╗  ██████╗ ██╗  ██╗██╗███╗   ██╗ ██████╗
+ ██╔══██╗██╔═══██╗╚██╗██╔╝██║████╗  ██║██╔════╝
+ ██║  ██║██║   ██║ ╚███╔╝ ██║██╔██╗ ██║██║  ███╗
+ ██║  ██║██║   ██║ ██╔██╗ ██║██║╚██╗██║██║   ██║
+ ██████╔╝╚██████╔╝██╔╝ ██╗██║██║ ╚████║╚██████╔╝
+ ╚═════╝  ╚═════╝ ╚═╝  ╚═╝╚═╝╚═╝  ╚═══╝ ╚═════╝
+
+ ████████╗ ██████╗  ██████╗ ██╗
+ ╚══██╔══╝██╔═══██╗██╔═══██╗██║
+    ██║   ██║   ██║██║   ██║██║
+    ██║   ██║   ██║██║   ██║██║
+    ██║   ╚██████╔╝╚██████╔╝███████╗
+    ╚═╝    ╚═════╝  ╚═════╝ ╚══════╝
+</pre>
+      <div class="tool-info">
+        <span class="gh-label">github:</span> <a href="https://github.com/R3D-GHOST/Doxing-tool" target="_blank">https://github.com/R3D-GHOST/Doxing-tool</a>
+      </div>
+      <div class="how-to-use">
+        <div class="how-label">Info how to use:</div>
+        <div class="platform">Termux (Android):</div>
+        <div class="cmd">pkg update && pkg upgrade -y</div>
+        <div class="cmd">pkg install git python -y</div>
+        <div class="cmd">git clone https://github.com/R3D-GHOST/Doxing-tool.git</div>
+        <div class="cmd">cd Doxing-tool</div>
+        <div class="cmd">pip install -r requirements.txt</div>
+        <div class="cmd">python doxing.py</div>
+      </div>
+      <div class="video-section">
+        <div style="color:#00ff88; font-weight:bold; margin-bottom:6px;">Video Tutorial:</div>
+        <a href="https://www.youtube.com/watch?v=AoxTFf_wp8E" target="_blank" class="video-btn">▶ Watch on YouTube</a>
+        <a href="https://rr8---sn-pmcg-bg0d.googlevideo.com/videoplayback?expire=1784804721&ei=EKFharHyOa-_mLAP8r6F4Qo&ip=31.59.15.192&id=o-ADUgOXukonjL08HNN6S46hfo-QC5aVhOqhw5YmcnM5hB&itag=18&source=youtube&requiressl=yes&xpc=EgVo2aDSNQ%3D%3D&bui=AZFlqhP701ydJ2fbPFZBixRb8XjyHrMgxiqO35wBjcaCeW2iVsj3NMfcuuC_nyDnjafkEJwwmA59z54-&spc=SQ-umilqh6DzNlKYqUn_BBdWo5jJI0Mn3hwye-4o0MgOQw7ZCDlTVLfKKUlDFuO2Yhk&vprv=1&svpuc=1&mime=video%2Fmp4&rqh=1&cnr=14&ratebypass=yes&dur=71.076&lmt=1762552457518980&fexp=51565116&c=ANDROID&txp=6218224&sig=AE0s2JYwRAIgQyYJofN9r_XjxXJ9ZXVcFpgL3K8DCyMbZcn61IOGc2ACIF8zW0CB9YcIPGbUw1Z3luXA7F1xhKZYcfH-nQFpovuj" target="_blank" class="video-btn">▶ Direct Video (if YouTube is down)</a>
+      </div>
+      <div class="lazy-section">
+        <div class="lazy-label">⚡ For lazy people:</div>
+        <code class="lazy-cmd">git clone https://github.com/R3D-GHOST/Doxing-tool.git</code>
+      </div>
+      <div class="separator">────────────────────────────────────────────</div>
+      <div class="back-btn">Type <span>"back"</span> to return to menu</div>
+      <div class="terminal-input-line">
+        <span class="prompt">╰─&gt; ():</span>
+        <input type="text" class="terminal-input page-input" data-page="page08" autocomplete="off">
+      </div>
+    </div>
+
+    <!-- PAGE 09: AXOM -->
+    <div class="tool-page" id="page09">
+<pre class="tool-ascii axom">
+  █████╗ ██╗  ██╗ ██████╗ ███╗   ███╗
+ ██╔══██╗╚██╗██╔╝██╔═══██╗████╗ ████║
+ ███████║ ╚███╔╝ ██║   ██║██╔████╔██║
+ ██╔══██║ ██╔██╗ ██║   ██║██║╚██╔╝██║
+ ██║  ██║██╔╝ ██╗╚██████╔╝██║ ╚═╝ ██║
+ ╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝ ╚═╝     ╚═╝
+</pre>
+      <div class="tool-info">
+        <span class="gh-label">github:</span> <a href="https://github.com/dAY0ShACKER505/AXOM-FB-HACK" target="_blank">https://github.com/dAY0ShACKER505/AXOM-FB-HACK</a>
+      </div>
+      <div class="how-to-use">
+        <div class="how-label">Info how to use:</div>
+        <div class="platform">Termux (Android):</div>
+        <div class="cmd">pkg update && pkg upgrade -y</div>
+        <div class="cmd">pkg install git python -y</div>
+        <div class="cmd">git clone https://github.com/dAY0ShACKER505/AXOM-FB-HACK</div>
+        <div class="cmd">cd AXOM-FB-HACK</div>
+        <div class="cmd">pip install -r requirements.txt</div>
+        <div class="cmd">python axom.py</div>
+      </div>
+      <div class="video-section">
+        <div style="color:#00ff88; font-weight:bold; margin-bottom:6px;">Video Tutorial:</div>
+        <a href="https://www.youtube.com/watch?v=_h-UfeJXNDE" target="_blank" class="video-btn">▶ Watch on YouTube</a>
+        <a href="https://rr17---sn-pmcg-bg0z.googlevideo.com/videoplayback?expire=1784804771&ei=Q6FhaqGGGruP8uMPxNmd6Qc&ip=104.252.136.15&id=o-APC81WMyx1MPgGpXbR6-nAiR4Y6OJ2yIfozufokAatvd&itag=18&source=youtube&requiressl=yes&xpc=EgVo2aDSNQ%3D%3D&rms=au%2Cau&bui=AZFlqhMOqP_aacoYllDUDkozHjPPp51ZB4DOMBGl0dvihQU5zb0xmncBNz40ucPSX9Fwwd6w4R24X75P&spc=SQ-umpQyUVzrGXnZ-Oi2iiMgBujm6H7MF3L6MKy33YQnZ_h_NIWSRejOpImZzGhEGds&vprv=1&svpuc=1&mime=video%2Fmp4&rqh=1&cnr=14&ratebypass=yes&dur=105.000&lmt=1757137029857979&fexp=51565115&c=ANDROID&txp=6218224&sig=AE0s2JYwRQIhAJaIv-bL5MMjaGrgydt1zmTCck1P2WgbwxoNhXcnyYlxAiB-2ghI-fAf5Lg1PPtFlqsxn47-dJ81SvpDlY8oRWiz3g%3D%3D" target="_blank" class="video-btn">▶ Direct Video (if YouTube is down)</a>
+      </div>
+      <div class="lazy-section">
+        <div class="lazy-label">⚡ For lazy people:</div>
+        <code class="lazy-cmd">git clone https://github.com/dAY0ShACKER505/AXOM-FB-HACK</code>
+      </div>
+      <div class="separator">────────────────────────────────────────────</div>
+      <div class="back-btn">Type <span>"back"</span> to return to menu</div>
+      <div class="terminal-input-line">
+        <span class="prompt">╰─&gt; ():</span>
+        <input type="text" class="terminal-input page-input" data-page="page09" autocomplete="off">
+      </div>
+    </div>
+
+    <!-- PAGE 10: Cariddi -->
+    <div class="tool-page" id="page10">
+<pre class="tool-ascii cariddi">
+  ██████╗ █████╗ ██████╗ ██╗██████╗ ██████╗ ██╗
+ ██╔════╝██╔══██╗██╔══██╗██║██╔══██╗██╔══██╗██║
+ ██║     ███████║██████╔╝██║██║  ██║██║  ██║██║
+ ██║     ██╔══██║██╔══██╗██║██║  ██║██║  ██║██║
+ ╚██████╗██║  ██║██║  ██║██║██████╔╝██████╔╝██║
+  ╚═════╝╚═╝  ╚═╝╚═╝  ╚═╝╚═╝╚═════╝ ╚═════╝ ╚═╝
+</pre>
+      <div class="tool-info">
+        <span class="gh-label">github:</span> <a href="https://github.com/edoardottt/cariddi" target="_blank">https://github.com/edoardottt/cariddi</a>
+      </div>
+      <div class="how-to-use">
+        <div class="how-label">Info how to use:</div>
+        <div class="platform">Kali Linux / Linux:</div>
+        <div class="cmd">sudo apt update</div>
+        <div class="cmd">sudo apt install golang git -y</div>
+        <div class="cmd">git clone https://github.com/edoardottt/cariddi.git</div>
+        <div class="cmd">cd cariddi</div>
+        <div class="cmd">go build</div>
+        <div class="cmd">./cariddi -help</div>
+      </div>
+      <div class="video-section">
+        <div style="color:#00ff88; font-weight:bold; margin-bottom:6px;">Video Tutorial:</div>
+        <a href="https://www.youtube.com/watch?v=LUNqDJTvXt0" target="_blank" class="video-btn">▶ Watch on YouTube</a>
+        <a href="https://rr12---sn-pmcg-bg0z.googlevideo.com/videoplayback?expire=1784804884&ei=tKFhasGFFY_DkucP4ueN4Q4&ip=82.23.203.236&id=o-AE9LP4LGbPHtxPY7b21H0cqJE5OgTJJdZJioGY4P2A40&itag=18&source=youtube&requiressl=yes&xpc=EgVo2aDSNQ%3D%3D&rms=au%2Cau&bui=AZFlqhN2naBR6pcXW9AhHaBCn6nq-D2Au2Z2CitopVqvHwZ1I5q3ChR9-Hh_NLOgcddOdUELiTkLfmIb&spc=SQ-umpj0TetK0qJogBe_Fc_C6h3P90TM58-2iLi2q5SiCADnJvu37UV7QpOkDS5xXz8&vprv=1&svpuc=1&mime=video%2Fmp4&rqh=1&cnr=14&ratebypass=yes&dur=217.849&lmt=1762427305722257&fexp=51565115&c=ANDROID&txp=6208224&sig=AE0s2JYwRQIhAPR7rd51Winkl8u841_GjrcMwngWREJOTxa26Upx0FeTAiAcsq9Dgf2W3rdgxQlqAqypNiMO4RQnKRt7tMFvIhOIuw%3D%3D" target="_blank" class="video-btn">▶ Direct Video (if YouTube is down)</a>
+      </div>
+      <div class="lazy-section">
+        <div class="lazy-label">⚡ For lazy people:</div>
+        <code class="lazy-cmd">git clone https://github.com/edoardottt/cariddi.git</code>
+      </div>
+      <div class="separator">────────────────────────────────────────────</div>
+      <div class="back-btn">Type <span>"back"</span> to return to menu</div>
+      <div class="terminal-input-line">
+        <span class="prompt">╰─&gt; ():</span>
+        <input type="text" class="terminal-input page-input" data-page="page10" autocomplete="off">
       </div>
     </div>
 
@@ -737,23 +835,34 @@
       <div style="color:#00ff88; font-weight:bold; font-size:18px; margin-bottom:14px;">GitHub Repo Creators</div>
 
       <div class="others-item">
-        <span class="others-label">Site Owner:</span> <span class="creator-name">Tuba</span> — <a href="https://github.com/tubarao109875-status" target="_blank">https://github.com/tubarao109875</a>
+        <span class="others-label">Site Owner:</span> <span class="creator-name">Tuba</span> — <a href="https://github.com/tubarao109875" target="_blank">https://github.com/tubarao109875</a>
       </div>
-
       <div class="others-item">
         <span class="others-label">AL-Tools:</span> <span class="creator-name">4lbH4cker</span> — <a href="https://github.com/4lbH4cker" target="_blank">https://github.com/4lbH4cker</a>
       </div>
-
       <div class="others-item">
         <span class="others-label">Fast-Mail-Bomber:</span> <span class="creator-name">juzeon</span> — <a href="https://github.com/juzeon" target="_blank">https://github.com/juzeon</a>
       </div>
-
       <div class="others-item">
         <span class="others-label">Zphisher:</span> <span class="creator-name">Tahmid Rayat</span> — <a href="https://github.com/htr-tech" target="_blank">https://github.com/htr-tech</a>
       </div>
-
       <div class="others-item">
         <span class="others-label">AllHackingTools:</span> <span class="creator-name">He1Zen</span> — <a href="https://github.com/mishakorzik" target="_blank">https://github.com/mishakorzik</a>
+      </div>
+      <div class="others-item">
+        <span class="others-label">Sherlock:</span> <span class="creator-name">Sherlock Project</span> — <a href="https://github.com/sherlock-project" target="_blank">https://github.com/sherlock-project</a>
+      </div>
+      <div class="others-item">
+        <span class="others-label">TOOLSS:</span> <span class="creator-name">AnonHackerr</span> — <a href="https://github.com/AnonHackerr" target="_blank">https://github.com/AnonHackerr</a>
+      </div>
+      <div class="others-item">
+        <span class="others-label">Doxing Tool:</span> <span class="creator-name">R3D-GHOST</span> — <a href="https://github.com/R3D-GHOST" target="_blank">https://github.com/R3D-GHOST</a>
+      </div>
+      <div class="others-item">
+        <span class="others-label">AXOM:</span> <span class="creator-name">dAY0ShACKER505</span> — <a href="https://github.com/dAY0ShACKER505" target="_blank">https://github.com/dAY0ShACKER505</a>
+      </div>
+      <div class="others-item">
+        <span class="others-label">Cariddi:</span> <span class="creator-name">edoardottt</span> — <a href="https://github.com/edoardottt" target="_blank">https://github.com/edoardottt</a>
       </div>
 
       <div class="separator">────────────────────────────────────────────</div>
@@ -781,14 +890,12 @@
     const musicIconOn = document.getElementById('musicIconOn');
     const musicIconOff = document.getElementById('musicIconOff');
 
-    // 🔐 SHA-256 hash function
     async function _h(s) {
       const e = new TextEncoder().encode(s);
       const b = await crypto.subtle.digest('SHA-256', e);
       return Array.from(new Uint8Array(b)).map(x => x.toString(16).padStart(2, '0')).join('');
     }
 
-    // 🔐 Obfuscated target — SHA-256 of "tuba on top"
     const _k = (function(){
       const a=[116,117,98,97,32,111,110,32,116,111,112];
       return _h(String.fromCharCode(...a));
@@ -828,7 +935,7 @@
       if (e.key === 'Enter') checkKey();
     });
 
-    const pages = ['page00','page01','page02','page03','page04','page05','page06','page99'];
+    const pages = ['page00','page01','page02','page03','page04','page05','page06','page07','page08','page09','page10','page99'];
 
     function showPage(pageId) {
       mainMenu.style.display = 'none';
@@ -870,6 +977,10 @@
         else if (val === '4' || val === '04') showPage('page04');
         else if (val === '5' || val === '05') showPage('page05');
         else if (val === '6' || val === '06') showPage('page06');
+        else if (val === '7' || val === '07') showPage('page07');
+        else if (val === '8' || val === '08') showPage('page08');
+        else if (val === '9' || val === '09') showPage('page09');
+        else if (val === '10') showPage('page10');
         else if (val === '99') showPage('page99');
         cmdInput.value = '';
       }
@@ -885,7 +996,6 @@
       });
     });
 
-    // MUSIC TOGGLE
     musicBtn.addEventListener('click', () => {
       if (bgMusic.muted || bgMusic.paused) {
         bgMusic.muted = false;
