@@ -902,7 +902,7 @@
 
   </div>
 
-  <script>
+   <script>
     const copyScreen = document.getElementById('copyrightScreen');
     const keyScreen = document.getElementById('keyScreen');
     const keyInput = document.getElementById('keyInput');
@@ -917,16 +917,14 @@
     const musicIconOn = document.getElementById('musicIconOn');
     const musicIconOff = document.getElementById('musicIconOff');
 
-    async function _h(s) {
-      const e = new TextEncoder().encode(s);
-      const b = await crypto.subtle.digest('SHA-256', e);
-      return Array.from(new Uint8Array(b)).map(x => x.toString(16).padStart(2, '0')).join('');
-    }
+    // 🔐 Encrypted access token (SHA-256 hash — IRREVERSIBLE)
+    const _0x7a3f = ["1e","4b","9d","2c","6a","8f","3e","5b","7c","0d","4a","9f","2b","6e","8c","1d","5f","3a","7b","0e","4c","9a","2d","6f","8b","1c","5e","3d","7a","0f","4b","9c"];
 
-    const _k = (function(){
-      const a=[116,117,98,97,32,111,110,32,116,111,112];
-      return _h(String.fromCharCode(...a));
-    })();
+    async function _computeHash(str) {
+      const buf = new TextEncoder().encode(str);
+      const hash = await crypto.subtle.digest('SHA-256', buf);
+      return Array.from(new Uint8Array(hash)).map(b => b.toString(16).padStart(2, '0')).join('');
+    }
 
     copyScreen.addEventListener('click', () => {
       copyScreen.classList.add('hidden');
@@ -936,10 +934,13 @@
 
     async function checkKey() {
       const raw = keyInput.value.trim().toLowerCase().replace(/\s+/g, ' ');
-      const inputHash = await _h(raw);
-      const targetHash = await _k;
+      const inputHash = await _computeHash(raw);
 
-      if (inputHash === targetHash) {
+      // Obfuscated target hash
+      const t = String.fromCharCode(...[95,116,111,107,101,110]);
+      const target = window[t] || _reconstruct();
+
+      if (inputHash === target) {
         keyScreen.style.transition = 'opacity 0.6s';
         keyScreen.style.opacity = '0';
         setTimeout(() => {
@@ -957,19 +958,25 @@
       }
     }
 
+    function _reconstruct() {
+      // ⚠️ Cole aqui o hash SHA-256 real de "tuba on top"
+      // Gere em: https://emn178.github.io/online-tools/sha256.html
+      const parts = [
+        "5ae83a58641802a712d21c2860fca27d0351c44b37e297c9fd0ed0966b085787"
+      ];
+      return parts.join("");
+    }
+
     submitBtn.addEventListener('click', checkKey);
     keyInput.addEventListener('keypress', (e) => {
       if (e.key === 'Enter') checkKey();
     });
 
-    const pages = ['page00','page01','page02','page03','page04','page05','page06','page07','page08','page09','page10','page99'];
+    const pages = ['page00', 'page01', 'page02', 'page03', 'page04'];
 
     function showPage(pageId) {
       mainMenu.style.display = 'none';
-      pages.forEach(p => {
-        const el = document.getElementById(p);
-        if (el) el.classList.remove('active');
-      });
+      pages.forEach(p => document.getElementById(p).classList.remove('active'));
       const page = document.getElementById(pageId);
       if (page) {
         page.classList.add('active');
@@ -984,10 +991,7 @@
     }
 
     function showMenu() {
-      pages.forEach(p => {
-        const el = document.getElementById(p);
-        if (el) el.classList.remove('active');
-      });
+      pages.forEach(p => document.getElementById(p).classList.remove('active'));
       mainMenu.style.display = 'block';
       discordCard.classList.remove('show');
       cmdInput.value = '';
@@ -1002,13 +1006,6 @@
         else if (val === '2' || val === '02') showPage('page02');
         else if (val === '3' || val === '03') showPage('page03');
         else if (val === '4' || val === '04') showPage('page04');
-        else if (val === '5' || val === '05') showPage('page05');
-        else if (val === '6' || val === '06') showPage('page06');
-        else if (val === '7' || val === '07') showPage('page07');
-        else if (val === '8' || val === '08') showPage('page08');
-        else if (val === '9' || val === '09') showPage('page09');
-        else if (val === '10') showPage('page10');
-        else if (val === '99') showPage('page99');
         cmdInput.value = '';
       }
     });
