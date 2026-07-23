@@ -2,61 +2,55 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Tuba</title>
+<title>tuba@Tuba: ~/Tuba</title>
+
+<!-- Fonte Ubuntu Mono (mesma do terminal do Ubuntu) -->
+<link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono:wght@400;700&display=swap" rel="stylesheet">
+
 <style>
   * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Arial Black', sans-serif;
   }
 
-  body {
-    background-color: #0a0a0a;
-    color: white;
-    overflow: hidden;
-    height: 100vh;
+  html, body {
+    background-color: #000000;
+    color: #ffffff;
+    font-family: 'Ubuntu Mono', monospace;
+    min-height: 100vh;
+    padding: 20px;
+    font-size: 16px;
+    overflow-x: auto;
   }
 
-  /* Fundo com imagem borrada */
-  .background {
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background-image: url('bg.jpg');
-    background-size: cover;
-    background-position: center;
-    filter: blur(15px);
-    z-index: -1;
-    transform: scale(1.1);
-  }
-
-  /* Tela inicial de copyright */
+  /* Tela de copyright inicial */
   .copyright-screen {
     position: fixed;
     top: 0; left: 0;
     width: 100%; height: 100%;
-    background-color: #0a0a0a;
+    background-color: #000000;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     z-index: 10;
     cursor: pointer;
-    transition: opacity 1s;
+    transition: opacity 0.8s;
   }
 
   .copyright-screen h2 {
-    color: white;
-    font-size: 28px;
+    color: #ffffff;
+    font-size: 24px;
     text-align: center;
     padding: 20px;
+    font-family: 'Ubuntu Mono', monospace;
   }
 
   .copyright-screen p {
     margin-top: 20px;
     color: #888;
-    font-size: 16px;
+    font-size: 14px;
   }
 
   .copyright-screen.hidden {
@@ -64,44 +58,65 @@
     pointer-events: none;
   }
 
-  /* Conteúdo principal */
-  .main-content {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  /* Texto TUBA com gradiente */
-  .tuba-text {
-    font-size: 200px;
-    font-weight: 900;
-    background: linear-gradient(
-      90deg,
-      #0066ff,
-      #00ff88,
-      #ffee00,
-      #ff8800,
-      #ff0044
+  /* ASCII art com gradiente radiante */
+  .ascii-art {
+    font-family: 'Ubuntu Mono', monospace;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 1;
+    white-space: pre;
+    background: radial-gradient(
+      circle at center,
+      #ff8888 0%,
+      #ff4d4d 40%,
+      #cc0000 80%,
+      #660000 100%
     );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    text-shadow: 0 0 40px rgba(0,0,0,0.5);
-    letter-spacing: 10px;
-    animation: glow 3s infinite alternate;
+    filter: drop-shadow(0 0 8px rgba(255, 60, 60, 0.4));
+    display: inline-block;
   }
 
-  @keyframes glow {
-    0%   { filter: drop-shadow(0 0 10px rgba(0, 200, 255, 0.6)); }
-    100% { filter: drop-shadow(0 0 30px rgba(255, 100, 0, 0.8)); }
+  .version {
+    color: #ff4d4d;
+    font-size: 14px;
+    margin-left: 10px;
+  }
+
+  .coded {
+    color: #ff4d4d;
+    margin-top: 10px;
+  }
+
+  .info-line {
+    margin-top: 15px;
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+
+  .label {
+    color: #d4a017;
+    text-decoration: underline;
+  }
+
+  .value {
+    color: #ffffff;
+  }
+
+  a {
+    color: #ff4d4d;
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
   }
 </style>
 </head>
 <body>
-
-  <!-- Fundo com blur -->
-  <div class="background"></div>
 
   <!-- Tela inicial de copyright -->
   <div class="copyright-screen" id="copyrightScreen">
@@ -109,24 +124,30 @@
     <p>Click anywhere to enter</p>
   </div>
 
-  <!-- Conteúdo principal -->
-  <div class="main-content">
-    <h1 class="tuba-text">TUBA</h1>
+  <!-- ASCII art TUBA -->
+<pre class="ascii-art">
+ ████████╗ ██╗   ██╗ ██████╗   █████╗ 
+ ╚══██╔══╝ ██║   ██║ ██╔══██╗ ██╔══██╗
+    ██║    ██║   ██║ ██████╔╝ ███████║
+    ██║    ██║   ██║ ██╔══██╗ ██╔══██║
+    ██║    ╚██████╔╝ ██████╔╝ ██║  ██║
+    ╚═╝     ╚═════╝  ╚═════╝  ╚═╝  ╚═╝ <span class="version">WIP</span>
+</pre>
+
+  <div class="coded">
+    Coded by Tuba<br>
+    github: <a href="https://github.com/tubarao109875-status/tubarao109875.github.io" target="_blank">https://github.com/tubarao109875-status/tubarao109875.github.io</a>
   </div>
 
-  <!-- Música de fundo -->
-  <audio id="bgMusic" loop>
-    <source src="numbers.mp3" type="audio/mpeg">
-  </audio>
+  <div class="info-line">
+    <div><span class="label">Version:</span> <span class="value">WIP</span></div>
+    <div><span class="label">Author:</span> <span class="value">tubarao109875</span></div>
+  </div>
 
   <script>
     const screen = document.getElementById('copyrightScreen');
-    const music = document.getElementById('bgMusic');
-
     screen.addEventListener('click', () => {
       screen.classList.add('hidden');
-      music.volume = 0.5;
-      music.play().catch(err => console.log("Autoplay bloqueado:", err));
     });
   </script>
 
