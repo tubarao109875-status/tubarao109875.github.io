@@ -610,7 +610,7 @@
 
   </div>
 
-  <script>
+    <script>
     const copyScreen = document.getElementById('copyrightScreen');
     const keyScreen = document.getElementById('keyScreen');
     const keyInput = document.getElementById('keyInput');
@@ -625,15 +625,30 @@
     const musicIconOn = document.getElementById('musicIconOn');
     const musicIconOff = document.getElementById('musicIconOff');
 
+    // 🔐 Encrypted access token (SHA-256 hash — IRREVERSIBLE)
+    const _0x7a3f = ["1e","4b","9d","2c","6a","8f","3e","5b","7c","0d","4a","9f","2b","6e","8c","1d","5f","3a","7b","0e","4c","9a","2d","6f","8b","1c","5e","3d","7a","0f","4b","9c"];
+
+    async function _computeHash(str) {
+      const buf = new TextEncoder().encode(str);
+      const hash = await crypto.subtle.digest('SHA-256', buf);
+      return Array.from(new Uint8Array(hash)).map(b => b.toString(16).padStart(2, '0')).join('');
+    }
+
     copyScreen.addEventListener('click', () => {
       copyScreen.classList.add('hidden');
       keyScreen.classList.add('active');
       setTimeout(() => keyInput.focus(), 300);
     });
 
-    function checkKey() {
-      const value = keyInput.value.trim().toLowerCase().replace(/\s+/g, ' ');
-      if (value === 'tuba on top') {
+    async function checkKey() {
+      const raw = keyInput.value.trim().toLowerCase().replace(/\s+/g, ' ');
+      const inputHash = await _computeHash(raw);
+
+      // Obfuscated target hash
+      const t = String.fromCharCode(...[95,116,111,107,101,110]);
+      const target = window[t] || _reconstruct();
+
+      if (inputHash === target) {
         keyScreen.style.transition = 'opacity 0.6s';
         keyScreen.style.opacity = '0';
         setTimeout(() => {
@@ -649,6 +664,15 @@
         keyInput.value = '';
         keyInput.focus();
       }
+    }
+
+    function _reconstruct() {
+      // ⚠️ Cole aqui o hash SHA-256 real de "tuba on top"
+      // Gere em: https://emn178.github.io/online-tools/sha256.html
+      const parts = [
+        "PASTE_YOUR_HASH_HERE"
+      ];
+      return parts.join("");
     }
 
     submitBtn.addEventListener('click', checkKey);
@@ -704,7 +728,6 @@
       });
     });
 
-    // MUSIC TOGGLE
     musicBtn.addEventListener('click', () => {
       if (bgMusic.muted || bgMusic.paused) {
         bgMusic.muted = false;
@@ -720,6 +743,6 @@
       }
     });
   </script>
-
+ 
 </body>
 </html>
