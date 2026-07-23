@@ -2,11 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>tuba@Tuba: ~/Tuba</title>
-
-<!-- Fonte Ubuntu Mono -->
+<title>tuba@Tuba: ~/TubaLibrary</title>
 <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono:wght@400;700&display=swap" rel="stylesheet">
-
 <style>
   * {
     margin: 0;
@@ -24,7 +21,7 @@
     overflow-x: auto;
   }
 
-  /* Tela de copyright inicial */
+  /* Tela de copyright */
   .copyright-screen {
     position: fixed;
     top: 0; left: 0;
@@ -79,14 +76,12 @@
     color: #ff4d4d;
     font-size: 32px;
     margin-bottom: 10px;
-    text-align: center;
   }
 
   .key-screen .subtitle {
     color: #888;
     font-size: 16px;
     margin-bottom: 30px;
-    text-align: center;
   }
 
   .key-input {
@@ -155,12 +150,18 @@
     margin-top: 12px;
     color: #888;
     font-size: 13px;
-    text-align: center;
   }
 
-  /* ASCII art com gradiente radiante */
+  /* Terminal principal */
+  .terminal {
+    display: none;
+  }
+
+  .terminal.active {
+    display: block;
+  }
+
   .ascii-art {
-    font-family: 'Ubuntu Mono', monospace;
     font-weight: bold;
     font-size: 14px;
     line-height: 1;
@@ -179,10 +180,8 @@
     display: inline-block;
   }
 
-  .version {
+  .version-tag {
     color: #ff4d4d;
-    font-size: 14px;
-    margin-left: 10px;
   }
 
   .coded {
@@ -214,64 +213,411 @@
   a:hover {
     text-decoration: underline;
   }
+
+  .separator {
+    color: #444;
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+
+  .menu-title {
+    color: #00ff88;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+
+  .menu-option {
+    margin: 4px 0;
+  }
+
+  .menu-option .num {
+    color: #d4a017;
+  }
+
+  .menu-option .name {
+    color: #ffffff;
+  }
+
+  /* Input do terminal */
+  .terminal-input-line {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .prompt {
+    color: #ff4d4d;
+    white-space: nowrap;
+  }
+
+  .terminal-input {
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #ffffff;
+    font-family: 'Ubuntu Mono', monospace;
+    font-size: 16px;
+    flex: 1;
+    caret-color: #ffffff;
+  }
+
+  /* Página de cada ferramenta */
+  .tool-page {
+    display: none;
+  }
+
+  .tool-page.active {
+    display: block;
+  }
+
+  .tool-ascii {
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 1;
+    white-space: pre;
+    display: inline-block;
+    margin-bottom: 15px;
+  }
+
+  .tool-ascii.zphisher {
+    background: radial-gradient(circle at center, #ffee00, #ff8800, #ff4400);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .tool-ascii.fastmail {
+    background: radial-gradient(circle at center, #00ffcc, #0088ff, #0044cc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .tool-ascii.altool {
+    background: radial-gradient(circle at center, #ff88ff, #cc44ff, #8800cc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .tool-ascii.hackingtool {
+    background: radial-gradient(circle at center, #88ff88, #00cc44, #006622);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .tool-info {
+    margin-top: 10px;
+  }
+
+  .tool-info .gh-label {
+    color: #d4a017;
+  }
+
+  .how-to-use {
+    margin-top: 20px;
+  }
+
+  .how-to-use .how-label {
+    color: #00ff88;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+
+  .how-to-use .platform {
+    color: #ff4d4d;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+
+  .how-to-use .cmd {
+    color: #cccccc;
+    margin-left: 10px;
+  }
+
+  .back-btn {
+    margin-top: 25px;
+    color: #888;
+  }
+
+  .back-btn span {
+    color: #ff4d4d;
+  }
+
+  /* Info page */
+  .info-page-title {
+    color: #00ff88;
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 15px;
+  }
+
+  .info-item {
+    margin: 5px 0;
+  }
+
+  .info-item .il {
+    color: #d4a017;
+  }
+
+  .info-item .iv {
+    color: #ffffff;
+  }
 </style>
 </head>
 <body>
 
-  <!-- Tela inicial de copyright -->
+  <!-- COPYRIGHT SCREEN -->
   <div class="copyright-screen" id="copyrightScreen">
     <h2>Everything on this site is copyright of Tubarao109875</h2>
     <p>Click anywhere to enter</p>
   </div>
 
-  <!-- Tela da KEY -->
+  <!-- KEY SCREEN -->
   <div class="key-screen" id="keyScreen">
     <h1>ENTER KEY</h1>
     <p class="subtitle">Please enter the access key to continue</p>
-
     <input type="text" id="keyInput" class="key-input" placeholder="Type your key here..." autocomplete="off">
     <button class="submit-btn" id="submitBtn">SUBMIT</button>
     <div class="error-msg" id="errorMsg"></div>
-
     <a href="https://discord.com/users/1485464472976887829" target="_blank" class="access-btn">GET ACCESS</a>
     <p class="ask-key">Ask the creator for the key</p>
   </div>
 
-  <!-- Conteúdo principal (terminal) -->
+  <!-- MAIN TERMINAL -->
+  <div class="terminal" id="mainTerminal">
+
+    <!-- Main Menu -->
+    <div id="mainMenu">
 <pre class="ascii-art">
- ████████╗ ██╗   ██╗ ██████╗   █████╗ 
- ╚══██╔══╝ ██║   ██║ ██╔══██╗ ██╔══██╗
-    ██║    ██║   ██║ ██████╔╝ ███████║
-    ██║    ██║   ██║ ██╔══██╗ ██╔══██║
-    ██║    ╚██████╔╝ ██████╔╝ ██║  ██║
-    ╚═╝     ╚═════╝  ╚═════╝  ╚═╝  ╚═╝ <span class="version">v1</span>
+ ████████╗██╗   ██╗██████╗  █████╗
+ ╚══██╔══╝██║   ██║██╔══██╗██╔══██╗
+    ██║   ██║   ██║██████╔╝███████║
+    ██║   ██║   ██║██╔══██╗██╔══██║
+    ██║   ╚██████╔╝██████╔╝██║  ██║
+    ╚═╝    ╚═════╝ ╚═════╝ ╚═╝  ╚═╝
+
+ ██╗     ██╗██████╗ ██████╗  █████╗ ██████╗ ██╗   ██╗
+ ██║     ██║██╔══██╗██╔══██╗██╔══██╗██╔══██╗╚██╗ ██╔╝
+ ██║     ██║██████╔╝██████╔╝███████║██████╔╝ ╚████╔╝
+ ██║     ██║██╔══██╗██╔══██╗██╔══██║██╔══██╗  ╚██╔╝
+ ███████╗██║██████╔╝██║  ██║██║  ██║██║  ██║   ██║
+ ╚══════╝╚═╝╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝   ╚═╝ <span class="version-tag">v2</span>
 </pre>
 
-  <div class="coded">
-    Coded by Tuba<br>
-    github: <a href="https://github.com/tubarao109875-status/tubarao109875.github.io" target="_blank">https://github.com/tubarao109875-status/tubarao109875.github.io</a>
-  </div>
+      <div class="coded">
+        Coded by Tuba<br>
+        github: <a href="https://github.com/tubarao109875-status/tubarao109875.github.io" target="_blank">https://github.com/tubarao109875-status/tubarao109875.github.io</a>
+      </div>
 
-  <div class="info-line">
-    <div><span class="label">Version:</span> <span class="value">1</span></div>
-    <div><span class="label">Author:</span> <span class="value">tubarao109875</span></div>
+      <div class="info-line">
+        <div><span class="label">Version:</span> <span class="value">2</span></div>
+        <div><span class="label">Author:</span> <span class="value">tubarao109875</span></div>
+      </div>
+
+      <div class="separator">────────────────────────────────────────────</div>
+
+      <div class="menu-title">[::] Select a tool from the library [::]</div>
+
+      <div class="menu-option"><span class="num">[00]</span> <span class="name">Information</span></div>
+      <div class="menu-option"><span class="num">[01]</span> <span class="name">Zphisher</span></div>
+      <div class="menu-option"><span class="num">[02]</span> <span class="name">Fast-Mail-Bomber</span></div>
+      <div class="menu-option"><span class="num">[03]</span> <span class="name">AL-Tools</span></div>
+      <div class="menu-option"><span class="num">[04]</span> <span class="name">HackingTool</span></div>
+
+      <div class="terminal-input-line">
+        <span class="prompt">╰─&gt; ():</span>
+        <input type="text" id="cmdInput" class="terminal-input" autofocus autocomplete="off">
+      </div>
+    </div>
+
+    <!-- PAGE 00: Information -->
+    <div class="tool-page" id="page00">
+      <div class="info-page-title">╔══ INFORMATION ══╗</div>
+      <div class="info-item"><span class="il">Project:</span> <span class="iv">Tuba Library</span></div>
+      <div class="info-item"><span class="il">Version:</span> <span class="iv">2</span></div>
+      <div class="info-item"><span class="il">Author:</span> <span class="iv">tubarao109875</span></div>
+      <div class="info-item"><span class="il">GitHub:</span> <span class="iv"><a href="https://github.com/tubarao109875-status/tubarao109875.github.io" target="_blank">https://github.com/tubarao109875-status/tubarao109875.github.io</a></span></div>
+      <div class="info-item"><span class="il">Discord:</span> <span class="iv"><a href="https://discord.com/users/1485464472976887829" target="_blank">tubarao109875</a></span></div>
+      <div class="info-item"><span class="il">Description:</span> <span class="iv">A curated library of useful hacking & security tools.</span></div>
+      <div class="info-item"><span class="il">Note:</span> <span class="iv">For educational purposes only. Use responsibly.</span></div>
+      <div class="separator">────────────────────────────────────────────</div>
+      <div class="back-btn">Type <span>"back"</span> to return to menu</div>
+      <div class="terminal-input-line">
+        <span class="prompt">╰─&gt; ():</span>
+        <input type="text" class="terminal-input page-input" data-page="page00" autocomplete="off">
+      </div>
+    </div>
+
+    <!-- PAGE 01: Zphisher -->
+    <div class="tool-page" id="page01">
+<pre class="tool-ascii zphisher">
+ ╔═══╗╔═══╗╔╗  ╔╗╔══╗ ╔═══╗╔╗  ╔╗╔═══╗╔═══╗
+ ╚══╗║║╔═╗║║║  ║║╚╣╠╝ ║╔═╗║║║  ║║║╔══╝║╔═╗║
+   ╔╝║║╚═╝║║╚══╝║ ║║  ║╚══╗║╚══╝║║╚══╗║╚═╝║
+  ╔╝╔╝║╔══╝║╔══╗║ ║║  ╚══╗║║╔══╗║║╔══╝║╔╗╔╝
+ ╔╝╔╝ ║║   ║║  ║║╔╣╠╗ ║╚═╝║║║  ║║║╚══╗║║║╚╗
+ ╚═╝  ╚╝   ╚╝  ╚╝╚══╝ ╚═══╝╚╝  ╚╝╚═══╝╚╝╚═╝
+</pre>
+      <div class="tool-info">
+        <span class="gh-label">github:</span> <a href="https://github.com/htr-tech/zphisher" target="_blank">https://github.com/htr-tech/zphisher</a>
+      </div>
+
+      <div class="how-to-use">
+        <div class="how-label">Info how to use:</div>
+        <div class="platform">WSL / Linux:</div>
+        <div class="cmd">sudo apt update</div>
+        <div class="cmd">sudo apt install git php curl -y</div>
+        <div class="cmd">git clone https://github.com/htr-tech/zphisher.git</div>
+        <div class="cmd">cd zphisher</div>
+        <div class="cmd">bash zphisher.sh</div>
+      </div>
+
+      <div class="separator">────────────────────────────────────────────</div>
+      <div class="back-btn">Type <span>"back"</span> to return to menu</div>
+      <div class="terminal-input-line">
+        <span class="prompt">╰─&gt; ():</span>
+        <input type="text" class="terminal-input page-input" data-page="page01" autocomplete="off">
+      </div>
+    </div>
+
+    <!-- PAGE 02: Fast-Mail-Bomber -->
+    <div class="tool-page" id="page02">
+<pre class="tool-ascii fastmail">
+ ╔═══╗╔═══╗╔═══╗╔════╗    ╔═╗╔═╗╔═══╗╔══╗╔╗
+ ║╔══╝║╔═╗║║╔═╗║║╔╗╔╗║    ║║╚╝║║║╔═╗║╚╣╠╝║║
+ ║╚══╗║║ ║║║╚══╗╚╝║║╚╝    ║╔╗╔╗║║║ ║║ ║║ ║║
+ ║╔══╝║╚═╝║╚══╗║  ║║      ║║║║║║║╚═╝║ ║║ ║║
+ ║║   ║╔═╗║║╚═╝║  ║║      ║║║║║║║╔═╗║╔╣╠╗║╚═╗
+ ╚╝   ╚╝ ╚╝╚═══╝  ╚╝      ╚╝╚╝╚╝╚╝ ╚╝╚══╝╚══╝
+
+ ╔══╗ ╔═══╗╔═╗╔═╗╔══╗ ╔═══╗╔═══╗
+ ║╔╗║ ║╔═╗║║║╚╝║║║╔╗║ ║╔══╝║╔═╗║
+ ║╚╝╚╗║║ ║║║╔╗╔╗║║╚╝╚╗║╚══╗║╚═╝║
+ ║╔═╗║║║ ║║║║║║║║║╔═╗║║╔══╝║╔╗╔╝
+ ║╚═╝║║╚═╝║║║║║║║║╚═╝║║╚══╗║║║╚╗
+ ╚═══╝╚═══╝╚╝╚╝╚╝╚═══╝╚═══╝╚╝╚═╝
+</pre>
+      <div class="tool-info">
+        <span class="gh-label">github:</span> <a href="https://github.com/juzeon/fast-mail-bomber" target="_blank">https://github.com/juzeon/fast-mail-bomber</a>
+      </div>
+
+      <div class="how-to-use">
+        <div class="how-label">Info how to use:</div>
+        <div class="platform">WSL / Linux:</div>
+        <div class="cmd">sudo apt update</div>
+        <div class="cmd">sudo apt install php-cli php-curl -y</div>
+        <div class="cmd">git clone https://github.com/juzeon/fast-mail-bomber.git</div>
+        <div class="cmd">cd fast-mail-bomber/</div>
+        <div class="cmd">cp config.example.php config.php</div>
+        <div class="cmd">rm -rf data/nodes.json data/dead_providers.json</div>
+        <div class="cmd">php index.php update-nodes <span style="color:#888;">(this can take 10-30 min)</span></div>
+        <div class="cmd">php index.php start-bombing <span style="color:#888;">(The Email)</span></div>
+      </div>
+
+      <div class="separator">────────────────────────────────────────────</div>
+      <div class="back-btn">Type <span>"back"</span> to return to menu</div>
+      <div class="terminal-input-line">
+        <span class="prompt">╰─&gt; ():</span>
+        <input type="text" class="terminal-input page-input" data-page="page02" autocomplete="off">
+      </div>
+    </div>
+
+    <!-- PAGE 03: AL-Tools -->
+    <div class="tool-page" id="page03">
+<pre class="tool-ascii altool">
+  █████╗ ██╗          ████████╗ ██████╗  ██████╗ ██╗     ███████╗
+ ██╔══██╗██║          ╚══██╔══╝██╔═══██╗██╔═══██╗██║     ██╔════╝
+ ███████║██║     █████╗  ██║   ██║   ██║██║   ██║██║     ███████╗
+ ██╔══██║██║     ╚════╝  ██║   ██║   ██║██║   ██║██║     ╚════██║
+ ██║  ██║███████╗        ██║   ╚██████╔╝╚██████╔╝███████╗███████║
+ ╚═╝  ╚═╝╚══════╝        ╚═╝    ╚═════╝  ╚═════╝ ╚══════╝╚══════╝
+</pre>
+      <div class="tool-info">
+        <span class="gh-label">github:</span> <a href="https://github.com/4lbH4cker/ALHacking/" target="_blank">https://github.com/4lbH4cker/ALHacking/</a>
+      </div>
+
+      <div class="how-to-use">
+        <div class="how-label">Info how to use:</div>
+        <div class="platform">WSL / Linux:</div>
+        <div class="cmd">sudo apt update</div>
+        <div class="cmd">git clone https://github.com/4lbH4cker/ALHacking.git</div>
+        <div class="cmd">cd ALHacking</div>
+        <div class="cmd">bash setup.sh</div>
+        <div class="cmd">python3 al-tool.py</div>
+      </div>
+
+      <div class="separator">────────────────────────────────────────────</div>
+      <div class="back-btn">Type <span>"back"</span> to return to menu</div>
+      <div class="terminal-input-line">
+        <span class="prompt">╰─&gt; ():</span>
+        <input type="text" class="terminal-input page-input" data-page="page03" autocomplete="off">
+      </div>
+    </div>
+
+    <!-- PAGE 04: HackingTool -->
+    <div class="tool-page" id="page04">
+<pre class="tool-ascii hackingtool">
+ ██╗  ██╗ █████╗  ██████╗██╗  ██╗██╗███╗  ██╗ ██████╗
+ ██║  ██║██╔══██╗██╔════╝██║ ██╔╝██║████╗ ██║██╔════╝
+ ███████║███████║██║     █████╔╝ ██║██╔██╗██║██║  ███╗
+ ██╔══██║██╔══██║██║     ██╔═██╗ ██║██║╚████║██║   ██║
+ ██║  ██║██║  ██║╚██████╗██║  ██╗██║██║ ╚███║╚██████╔╝
+ ╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝╚═╝  ╚═╝╚═╝╚═╝  ╚══╝ ╚═════╝
+
+ ████████╗ ██████╗  ██████╗ ██╗
+ ╚══██╔══╝██╔═══██╗██╔═══██╗██║
+    ██║   ██║   ██║██║   ██║██║
+    ██║   ██║   ██║██║   ██║██║
+    ██║   ╚██████╔╝╚██████╔╝███████╗
+    ╚═╝    ╚═════╝  ╚═════╝ ╚══════╝
+</pre>
+      <div class="tool-info">
+        <span class="gh-label">github:</span> <a href="https://github.com/mishakorzik/AllHackingTools" target="_blank">https://github.com/mishakorzik/AllHackingTools</a>
+      </div>
+
+      <div class="how-to-use">
+        <div class="how-label">Info how to use:</div>
+        <div class="platform">WSL / Linux:</div>
+        <div class="cmd">sudo apt update</div>
+        <div class="cmd">git clone https://github.com/mishakorzik/AllHackingTools.git</div>
+        <div class="cmd">cd AllHackingTools</div>
+        <div class="cmd">chmod +x install.sh</div>
+        <div class="cmd">bash install.sh</div>
+        <div class="cmd">python3 hackingtool.py</div>
+      </div>
+
+      <div class="separator">────────────────────────────────────────────</div>
+      <div class="back-btn">Type <span>"back"</span> to return to menu</div>
+      <div class="terminal-input-line">
+        <span class="prompt">╰─&gt; ():</span>
+        <input type="text" class="terminal-input page-input" data-page="page04" autocomplete="off">
+      </div>
+    </div>
+
   </div>
 
   <script>
+    // Copyright screen
     const copyScreen = document.getElementById('copyrightScreen');
     const keyScreen = document.getElementById('keyScreen');
     const keyInput = document.getElementById('keyInput');
     const submitBtn = document.getElementById('submitBtn');
     const errorMsg = document.getElementById('errorMsg');
+    const terminal = document.getElementById('mainTerminal');
+    const mainMenu = document.getElementById('mainMenu');
+    const cmdInput = document.getElementById('cmdInput');
 
-    // Passo 1: clicar no copyright para ir pra key
     copyScreen.addEventListener('click', () => {
       copyScreen.classList.add('hidden');
       keyScreen.classList.add('active');
       setTimeout(() => keyInput.focus(), 300);
     });
 
-    // Função para checar a key
+    // Key check
     function checkKey() {
       const value = keyInput.value.trim().toLowerCase().replace(/\s+/g, ' ');
       if (value === 'tuba on top') {
@@ -279,6 +625,8 @@
         keyScreen.style.opacity = '0';
         setTimeout(() => {
           keyScreen.classList.remove('active');
+          terminal.classList.add('active');
+          cmdInput.focus();
         }, 600);
       } else {
         errorMsg.textContent = '✗ Invalid key. Try again.';
@@ -288,9 +636,65 @@
     }
 
     submitBtn.addEventListener('click', checkKey);
-
     keyInput.addEventListener('keypress', (e) => {
       if (e.key === 'Enter') checkKey();
+    });
+
+    // Pages
+    const pages = ['page00', 'page01', 'page02', 'page03', 'page04'];
+
+    function showPage(pageId) {
+      mainMenu.style.display = 'none';
+      pages.forEach(p => {
+        document.getElementById(p).classList.remove('active');
+      });
+      const page = document.getElementById(pageId);
+      if (page) {
+        page.classList.add('active');
+        const input = page.querySelector('.page-input');
+        if (input) input.focus();
+      }
+    }
+
+    function showMenu() {
+      pages.forEach(p => {
+        document.getElementById(p).classList.remove('active');
+      });
+      mainMenu.style.display = 'block';
+      cmdInput.value = '';
+      cmdInput.focus();
+    }
+
+    // Main menu input
+    cmdInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        const val = cmdInput.value.trim();
+        if (val === '0' || val === '00') {
+          showPage('page00');
+        } else if (val === '1' || val === '01') {
+          showPage('page01');
+        } else if (val === '2' || val === '02') {
+          showPage('page02');
+        } else if (val === '3' || val === '03') {
+          showPage('page03');
+        } else if (val === '4' || val === '04') {
+          showPage('page04');
+        }
+        cmdInput.value = '';
+      }
+    });
+
+    // Page inputs (back)
+    document.querySelectorAll('.page-input').forEach(input => {
+      input.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+          const val = input.value.trim().toLowerCase();
+          if (val === 'back') {
+            showMenu();
+          }
+          input.value = '';
+        }
+      });
     });
   </script>
 
