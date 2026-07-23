@@ -1,11 +1,134 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Tuba again</title>
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
+<title>Tuba</title>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial Black', sans-serif;
+  }
+
+  body {
+    background-color: #0a0a0a;
+    color: white;
+    overflow: hidden;
+    height: 100vh;
+  }
+
+  /* Fundo com imagem borrada */
+  .background {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-image: url('bg.jpg');
+    background-size: cover;
+    background-position: center;
+    filter: blur(15px);
+    z-index: -1;
+    transform: scale(1.1);
+  }
+
+  /* Tela inicial de copyright */
+  .copyright-screen {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: #0a0a0a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 10;
+    cursor: pointer;
+    transition: opacity 1s;
+  }
+
+  .copyright-screen h2 {
+    color: white;
+    font-size: 28px;
+    text-align: center;
+    padding: 20px;
+  }
+
+  .copyright-screen p {
+    margin-top: 20px;
+    color: #888;
+    font-size: 16px;
+  }
+
+  .copyright-screen.hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  /* Conteúdo principal */
+  .main-content {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* Texto TUBA com gradiente */
+  .tuba-text {
+    font-size: 200px;
+    font-weight: 900;
+    background: linear-gradient(
+      90deg,
+      #0066ff,
+      #00ff88,
+      #ffee00,
+      #ff8800,
+      #ff0044
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 0 40px rgba(0,0,0,0.5);
+    letter-spacing: 10px;
+    animation: glow 3s infinite alternate;
+  }
+
+  @keyframes glow {
+    0%   { filter: drop-shadow(0 0 10px rgba(0, 200, 255, 0.6)); }
+    100% { filter: drop-shadow(0 0 30px rgba(255, 100, 0, 0.8)); }
+  }
+</style>
 </head>
 <body>
-    <h1>Meu primeiro site no GitHub Pages 🚀</h1>
-    <p>Eu mesmo estou gerenciando!</p>
+
+  <!-- Fundo com blur -->
+  <div class="background"></div>
+
+  <!-- Tela inicial de copyright -->
+  <div class="copyright-screen" id="copyrightScreen">
+    <h2>Everything on this site is copyright of Tubarao109875</h2>
+    <p>Click anywhere to enter</p>
+  </div>
+
+  <!-- Conteúdo principal -->
+  <div class="main-content">
+    <h1 class="tuba-text">TUBA</h1>
+  </div>
+
+  <!-- Música de fundo -->
+  <audio id="bgMusic" loop>
+    <source src="numbers.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    const screen = document.getElementById('copyrightScreen');
+    const music = document.getElementById('bgMusic');
+
+    screen.addEventListener('click', () => {
+      screen.classList.add('hidden');
+      music.volume = 0.5;
+      music.play().catch(err => console.log("Autoplay bloqueado:", err));
+    });
+  </script>
+
 </body>
 </html>
