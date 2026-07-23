@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <title>tuba@Tuba: ~/TubaLibrary</title>
 <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono:wght@400;700&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Ginto+Nord:wght@800&family=Noto+Sans:wght@400;500;600;700;900&display=swap" rel="stylesheet">
 <style>
   * {
     margin: 0;
@@ -79,6 +78,7 @@
   /* TERMINAL */
   .terminal { display: none; }
   .terminal.active { display: block; }
+
   .ascii-art {
     font-weight: bold; font-size: 14px; line-height: 1; white-space: pre;
     background: radial-gradient(circle at center, #ff8888 0%, #ff4d4d 40%, #cc0000 80%, #660000 100%);
@@ -106,6 +106,7 @@
     color: #ffffff; font-family: 'Ubuntu Mono', monospace;
     font-size: 16px; flex: 1; caret-color: #ffffff;
   }
+
   .tool-page { display: none; }
   .tool-page.active { display: block; }
   .tool-ascii {
@@ -116,6 +117,7 @@
   .tool-ascii.fastmail { background: radial-gradient(circle at center, #00ffcc, #0088ff, #0044cc); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
   .tool-ascii.altool { background: radial-gradient(circle at center, #ff88ff, #cc44ff, #8800cc); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
   .tool-ascii.hackingtool { background: radial-gradient(circle at center, #88ff88, #00cc44, #006622); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
   .tool-info { margin-top: 10px; }
   .tool-info .gh-label { color: #d4a017; }
   .how-to-use { margin-top: 20px; }
@@ -129,18 +131,15 @@
   .info-item .il { color: #d4a017; }
   .info-item .iv { color: #ffffff; }
 
-  /* ============================
-     DISCORD PROFILE CARD
-     ============================ */
+  /* DISCORD CARD */
   .discord-card {
     position: fixed;
-    top: 40px;
-    right: 40px;
+    top: 40px; right: 40px;
     width: 340px;
     background-color: #111214;
     border-radius: 12px;
     overflow: hidden;
-    font-family: 'Noto Sans', 'gg sans', sans-serif;
+    font-family: 'Noto Sans', 'gg sans', Arial, sans-serif;
     box-shadow: 0 8px 20px rgba(0,0,0,0.6);
     z-index: 5;
     color: #dbdee1;
@@ -149,27 +148,21 @@
   .discord-card.show { display: block; }
 
   .dc-banner {
-    height: 105px;
-    width: 100%;
+    height: 105px; width: 100%;
     background-color: #1a1a1a;
-    background-size: cover;
-    background-position: center;
+    background-size: cover; background-position: center;
   }
-
   .dc-avatar-wrap {
     position: relative;
-    margin-top: -46px;
-    margin-left: 16px;
-    width: 92px;
-    height: 92px;
+    margin-top: -46px; margin-left: 16px;
+    width: 92px; height: 92px;
   }
   .dc-avatar {
     width: 92px; height: 92px;
     border-radius: 50%;
     border: 6px solid #111214;
     background-color: #333;
-    background-size: cover;
-    background-position: center;
+    background-size: cover; background-position: center;
   }
   .dc-status {
     position: absolute;
@@ -179,36 +172,27 @@
     border: 5px solid #111214;
     border-radius: 50%;
   }
-
   .dc-body {
     background-color: #232428;
     margin: 12px 16px 16px 16px;
     border-radius: 8px;
     padding: 14px;
   }
-
   .dc-name {
-    font-family: 'Ginto Nord', 'Noto Sans', sans-serif;
-    font-weight: 800;
+    font-weight: 900;
     font-size: 22px;
     color: #ffffff;
     letter-spacing: 0.3px;
   }
   .dc-username {
-    font-size: 14px;
-    color: #ffffff;
-    margin-top: 2px;
-    font-weight: 500;
+    font-size: 14px; color: #ffffff;
+    margin-top: 2px; font-weight: 500;
   }
   .dc-tag {
-    font-size: 13px;
-    color: #b5bac1;
-    margin-top: 6px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+    font-size: 13px; color: #b5bac1;
+    margin-top: 6px; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.5px;
   }
-
   .dc-status-box {
     margin-top: 10px;
     background-color: #1e1f22;
@@ -218,16 +202,15 @@
     font-size: 13px;
     display: inline-flex;
     align-items: center;
-    gap: 6px;
-    font-weight: 500;
+    gap: 6px; font-weight: 500;
   }
-
   .dc-divider {
     height: 1px;
     background-color: #3f4147;
     margin: 12px 0;
   }
 
+  /* BADGES */
   .dc-badges {
     display: flex;
     flex-wrap: wrap;
@@ -235,43 +218,102 @@
     background-color: #1e1f22;
     padding: 6px 8px;
     border-radius: 6px;
-  }
-  .dc-badge {
-    width: 22px; height: 22px;
-    border-radius: 4px;
-    display: flex;
     align-items: center;
-    justify-content: center;
-    font-size: 12px;
+  }
+  .dc-badge-img {
+    width: 22px; height: 22px;
+    object-fit: contain;
   }
 
   .dc-about-label {
-    font-size: 12px;
-    font-weight: 700;
-    color: #ffffff;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    margin-top: 12px;
-    margin-bottom: 6px;
+    font-size: 12px; font-weight: 700; color: #ffffff;
+    text-transform: uppercase; letter-spacing: 0.5px;
+    margin-top: 12px; margin-bottom: 6px;
   }
   .dc-about {
-    font-size: 14px;
-    color: #dbdee1;
-    line-height: 1.4;
+    font-size: 14px; color: #dbdee1; line-height: 1.4;
   }
   .dc-member-label {
-    font-size: 12px;
-    font-weight: 700;
-    color: #ffffff;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    margin-top: 14px;
-    margin-bottom: 4px;
+    font-size: 12px; font-weight: 700; color: #ffffff;
+    text-transform: uppercase; letter-spacing: 0.5px;
+    margin-top: 14px; margin-bottom: 4px;
   }
   .dc-member-date {
-    font-size: 14px;
-    color: #dbdee1;
+    font-size: 14px; color: #dbdee1;
   }
+
+  /* ROLES */
+  .dc-roles-label {
+    font-size: 12px; font-weight: 700; color: #ffffff;
+    text-transform: uppercase; letter-spacing: 0.5px;
+    margin-top: 14px; margin-bottom: 6px;
+  }
+  .dc-roles {
+    display: flex; flex-wrap: wrap; gap: 4px;
+  }
+  .dc-role {
+    background-color: #1e1f22;
+    padding: 3px 8px; border-radius: 4px;
+    font-size: 12px; font-weight: 500;
+    color: #dbdee1;
+    display: inline-flex; align-items: center; gap: 5px;
+  }
+  .dc-role .dot {
+    width: 8px; height: 8px;
+    border-radius: 50%; display: inline-block;
+  }
+  .dc-role.tuba-rgb {
+    color: #fff;
+    animation: rgbText 4s linear infinite;
+  }
+  .dc-role.tuba-rgb .dot {
+    animation: rgbDot 4s linear infinite;
+  }
+  @keyframes rgbText {
+    0%   { color: #ff0000; }
+    16%  { color: #ff8800; }
+    33%  { color: #ffee00; }
+    50%  { color: #00ff44; }
+    66%  { color: #00aaff; }
+    83%  { color: #aa00ff; }
+    100% { color: #ff0000; }
+  }
+  @keyframes rgbDot {
+    0%   { background-color: #ff0000; box-shadow: 0 0 6px #ff0000; }
+    16%  { background-color: #ff8800; box-shadow: 0 0 6px #ff8800; }
+    33%  { background-color: #ffee00; box-shadow: 0 0 6px #ffee00; }
+    50%  { background-color: #00ff44; box-shadow: 0 0 6px #00ff44; }
+    66%  { background-color: #00aaff; box-shadow: 0 0 6px #00aaff; }
+    83%  { background-color: #aa00ff; box-shadow: 0 0 6px #aa00ff; }
+    100% { background-color: #ff0000; box-shadow: 0 0 6px #ff0000; }
+  }
+
+  /* MUSIC BUTTON */
+  .music-btn {
+    position: fixed;
+    bottom: 20px; left: 20px;
+    width: 50px; height: 50px;
+    background-color: #1a1a1a;
+    border: 1px solid #333;
+    border-radius: 50%;
+    display: none;
+    justify-content: center; align-items: center;
+    cursor: pointer;
+    z-index: 100;
+    transition: background-color 0.3s, border-color 0.3s, transform 0.15s;
+  }
+  .music-btn.visible { display: flex; }
+  .music-btn:hover { transform: scale(1.08); }
+  .music-btn svg {
+    width: 24px; height: 24px;
+    fill: #ffffff; transition: fill 0.3s;
+  }
+  .music-btn.muted {
+    background-color: #cc0000;
+    border-color: #ff4d4d;
+    box-shadow: 0 0 10px rgba(255, 77, 77, 0.4);
+  }
+  .music-btn.muted svg { fill: #ffffff; }
 
   @media (max-width: 900px) {
     .discord-card {
@@ -327,16 +369,12 @@
       <div class="dc-divider"></div>
 
       <div class="dc-badges">
-        <div class="dc-badge" title="Active Developer">🛠️</div>
-        <div class="dc-badge" title="HypeSquad">✨</div>
-        <div class="dc-badge" title="Bug Hunter">🐛</div>
-        <div class="dc-badge" title="Nitro">💎</div>
-        <div class="dc-badge" title="Boost">🚀</div>
-        <div class="dc-badge" title="Legacy">🎮</div>
-        <div class="dc-badge" title="Partner">🤝</div>
-        <div class="dc-badge" title="Staff">🛡️</div>
-        <div class="dc-badge" title="Verified">✅</div>
-        <div class="dc-badge" title="Early Supporter">⭐</div>
+        <img src="Staff.png" class="dc-badge-img" title="Discord Staff">
+        <img src="Parter.png" class="dc-badge-img" title="Partner">
+        <img src="Dev.png" class="dc-badge-img" title="Active Developer">
+        <img src="ADM.png" class="dc-badge-img" title="Admin">
+        <img src="Early.png" class="dc-badge-img" title="Early Supporter">
+        <img src="Nitro opal.png" class="dc-badge-img" title="Nitro Opal">
       </div>
 
       <div class="dc-about-label">About Me</div>
@@ -344,7 +382,27 @@
 
       <div class="dc-member-label">Member Since</div>
       <div class="dc-member-date">Mar 22, 2026</div>
+
+      <div class="dc-roles-label">Roles</div>
+      <div class="dc-roles">
+        <div class="dc-role"><span class="dot" style="background-color:#02054f;"></span>Java builder</div>
+        <div class="dc-role"><span class="dot" style="background-color:#2c2169;"></span>Luau builder</div>
+        <div class="dc-role"><span class="dot" style="background-color:#41f072;"></span>coder</div>
+        <div class="dc-role"><span class="dot" style="background-color:#cb2af7;"></span>Vencord Plugin builder</div>
+        <div class="dc-role"><span class="dot" style="background-color:#ff0000;"></span>python builder</div>
+        <div class="dc-role tuba-rgb"><span class="dot"></span>TUBA</div>
+      </div>
     </div>
+  </div>
+
+  <!-- MUSIC TOGGLE BUTTON -->
+  <div class="music-btn" id="musicBtn" title="Mute / Unmute">
+    <svg id="musicIconOn" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>
+    </svg>
+    <svg id="musicIconOff" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="display:none;">
+      <path d="M4.27 3L3 4.27l9 9v.28c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4v-1.73L19.73 21 21 19.73 4.27 3zM14 7h4V3h-6v5.18l2 2V7z"/>
+    </svg>
   </div>
 
   <!-- MAIN TERMINAL -->
@@ -365,7 +423,7 @@
  ██║     ██║██████╔╝██████╔╝███████║██████╔╝ ╚████╔╝
  ██║     ██║██╔══██╗██╔══██╗██╔══██║██╔══██╗  ╚██╔╝
  ███████╗██║██████╔╝██║  ██║██║  ██║██║  ██║   ██║
- ╚══════╝╚═╝╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝   ╚═╝ <span class="version-tag">v3</span>
+ ╚══════╝╚═╝╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝   ╚═╝ <span class="version-tag">v5</span>
 </pre>
 
       <div class="coded">
@@ -374,7 +432,7 @@
       </div>
 
       <div class="info-line">
-        <div><span class="label">Version:</span> <span class="value">3</span></div>
+        <div><span class="label">Version:</span> <span class="value">5</span></div>
         <div><span class="label">Author:</span> <span class="value">tubarao109875</span></div>
       </div>
 
@@ -398,7 +456,7 @@
     <div class="tool-page" id="page00">
       <div class="info-page-title">╔══ INFORMATION ══╗</div>
       <div class="info-item"><span class="il">Project:</span> <span class="iv">Tuba Library</span></div>
-      <div class="info-item"><span class="il">Version:</span> <span class="iv">3</span></div>
+      <div class="info-item"><span class="il">Version:</span> <span class="iv">5</span></div>
       <div class="info-item"><span class="il">Author:</span> <span class="iv">tubarao109875</span></div>
       <div class="info-item"><span class="il">GitHub:</span> <span class="iv"><a href="https://github.com/tubarao109875-status/tubarao109875.github.io" target="_blank">https://github.com/tubarao109875-status/tubarao109875.github.io</a></span></div>
       <div class="info-item"><span class="il">Discord:</span> <span class="iv"><a href="https://discord.com/users/1485464472976887829" target="_blank">tubarao109875</a></span></div>
@@ -563,6 +621,9 @@
     const cmdInput = document.getElementById('cmdInput');
     const discordCard = document.getElementById('discordCard');
     const bgMusic = document.getElementById('bgMusic');
+    const musicBtn = document.getElementById('musicBtn');
+    const musicIconOn = document.getElementById('musicIconOn');
+    const musicIconOff = document.getElementById('musicIconOff');
 
     copyScreen.addEventListener('click', () => {
       copyScreen.classList.add('hidden');
@@ -579,9 +640,9 @@
           keyScreen.classList.remove('active');
           terminal.classList.add('active');
           cmdInput.focus();
-          // start background music
           bgMusic.volume = 0.4;
           bgMusic.play().catch(err => console.log("Autoplay blocked:", err));
+          musicBtn.classList.add('visible');
         }, 600);
       } else {
         errorMsg.textContent = '✗ Invalid key. Try again.';
@@ -606,7 +667,6 @@
         const input = page.querySelector('.page-input');
         if (input) input.focus();
       }
-      // Show Discord card only on info page
       if (pageId === 'page00') {
         discordCard.classList.add('show');
       } else {
@@ -642,6 +702,22 @@
           input.value = '';
         }
       });
+    });
+
+    // MUSIC TOGGLE
+    musicBtn.addEventListener('click', () => {
+      if (bgMusic.muted || bgMusic.paused) {
+        bgMusic.muted = false;
+        bgMusic.play().catch(err => console.log(err));
+        musicBtn.classList.remove('muted');
+        musicIconOn.style.display = 'block';
+        musicIconOff.style.display = 'none';
+      } else {
+        bgMusic.muted = true;
+        musicBtn.classList.add('muted');
+        musicIconOn.style.display = 'none';
+        musicIconOff.style.display = 'block';
+      }
     });
   </script>
 
