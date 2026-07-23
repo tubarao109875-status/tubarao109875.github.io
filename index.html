@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <title>tuba@Tuba: ~/Tuba</title>
 
-<!-- Fonte Ubuntu Mono (mesma do terminal do Ubuntu) -->
+<!-- Fonte Ubuntu Mono -->
 <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono:wght@400;700&display=swap" rel="stylesheet">
 
 <style>
@@ -34,7 +34,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    z-index: 10;
+    z-index: 20;
     cursor: pointer;
     transition: opacity 0.8s;
   }
@@ -44,7 +44,6 @@
     font-size: 24px;
     text-align: center;
     padding: 20px;
-    font-family: 'Ubuntu Mono', monospace;
   }
 
   .copyright-screen p {
@@ -56,6 +55,107 @@
   .copyright-screen.hidden {
     opacity: 0;
     pointer-events: none;
+  }
+
+  /* Tela da KEY */
+  .key-screen {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: #000000;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 15;
+    padding: 20px;
+  }
+
+  .key-screen.active {
+    display: flex;
+  }
+
+  .key-screen h1 {
+    color: #ff4d4d;
+    font-size: 32px;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+
+  .key-screen .subtitle {
+    color: #888;
+    font-size: 16px;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+
+  .key-input {
+    background-color: #111;
+    border: 1px solid #ff4d4d;
+    color: #ffffff;
+    font-family: 'Ubuntu Mono', monospace;
+    font-size: 18px;
+    padding: 12px 18px;
+    width: 340px;
+    max-width: 90%;
+    outline: none;
+    border-radius: 4px;
+    text-align: center;
+  }
+
+  .key-input:focus {
+    box-shadow: 0 0 10px rgba(255, 77, 77, 0.5);
+  }
+
+  .submit-btn {
+    margin-top: 15px;
+    background-color: #ff4d4d;
+    color: #000;
+    border: none;
+    font-family: 'Ubuntu Mono', monospace;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 10px 30px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: 0.2s;
+  }
+
+  .submit-btn:hover {
+    background-color: #ff8080;
+  }
+
+  .error-msg {
+    color: #ff4d4d;
+    margin-top: 15px;
+    height: 20px;
+    font-size: 14px;
+  }
+
+  .access-btn {
+    margin-top: 40px;
+    background-color: transparent;
+    color: #ff4d4d;
+    border: 1px solid #ff4d4d;
+    font-family: 'Ubuntu Mono', monospace;
+    font-size: 15px;
+    padding: 10px 25px;
+    cursor: pointer;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: 0.2s;
+  }
+
+  .access-btn:hover {
+    background-color: #ff4d4d;
+    color: #000;
+  }
+
+  .ask-key {
+    margin-top: 12px;
+    color: #888;
+    font-size: 13px;
+    text-align: center;
   }
 
   /* ASCII art com gradiente radiante */
@@ -124,14 +224,27 @@
     <p>Click anywhere to enter</p>
   </div>
 
-  <!-- ASCII art TUBA -->
+  <!-- Tela da KEY -->
+  <div class="key-screen" id="keyScreen">
+    <h1>ENTER KEY</h1>
+    <p class="subtitle">Please enter the access key to continue</p>
+
+    <input type="text" id="keyInput" class="key-input" placeholder="Type your key here..." autocomplete="off">
+    <button class="submit-btn" id="submitBtn">SUBMIT</button>
+    <div class="error-msg" id="errorMsg"></div>
+
+    <a href="https://discord.com/users/1485464472976887829" target="_blank" class="access-btn">GET ACCESS</a>
+    <p class="ask-key">Ask the creator for the key</p>
+  </div>
+
+  <!-- Conteúdo principal (terminal) -->
 <pre class="ascii-art">
  ████████╗ ██╗   ██╗ ██████╗   █████╗ 
  ╚══██╔══╝ ██║   ██║ ██╔══██╗ ██╔══██╗
     ██║    ██║   ██║ ██████╔╝ ███████║
     ██║    ██║   ██║ ██╔══██╗ ██╔══██║
     ██║    ╚██████╔╝ ██████╔╝ ██║  ██║
-    ╚═╝     ╚═════╝  ╚═════╝  ╚═╝  ╚═╝ <span class="version">WIP</span>
+    ╚═╝     ╚═════╝  ╚═════╝  ╚═╝  ╚═╝ <span class="version">v1</span>
 </pre>
 
   <div class="coded">
@@ -140,14 +253,44 @@
   </div>
 
   <div class="info-line">
-    <div><span class="label">Version:</span> <span class="value">WIP</span></div>
+    <div><span class="label">Version:</span> <span class="value">1</span></div>
     <div><span class="label">Author:</span> <span class="value">tubarao109875</span></div>
   </div>
 
   <script>
-    const screen = document.getElementById('copyrightScreen');
-    screen.addEventListener('click', () => {
-      screen.classList.add('hidden');
+    const copyScreen = document.getElementById('copyrightScreen');
+    const keyScreen = document.getElementById('keyScreen');
+    const keyInput = document.getElementById('keyInput');
+    const submitBtn = document.getElementById('submitBtn');
+    const errorMsg = document.getElementById('errorMsg');
+
+    // Passo 1: clicar no copyright para ir pra key
+    copyScreen.addEventListener('click', () => {
+      copyScreen.classList.add('hidden');
+      keyScreen.classList.add('active');
+      setTimeout(() => keyInput.focus(), 300);
+    });
+
+    // Função para checar a key
+    function checkKey() {
+      const value = keyInput.value.trim().toLowerCase().replace(/\s+/g, ' ');
+      if (value === 'tuba on top') {
+        keyScreen.style.transition = 'opacity 0.6s';
+        keyScreen.style.opacity = '0';
+        setTimeout(() => {
+          keyScreen.classList.remove('active');
+        }, 600);
+      } else {
+        errorMsg.textContent = '✗ Invalid key. Try again.';
+        keyInput.value = '';
+        keyInput.focus();
+      }
+    }
+
+    submitBtn.addEventListener('click', checkKey);
+
+    keyInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') checkKey();
     });
   </script>
 
