@@ -146,6 +146,9 @@ a:hover { text-decoration:underline; }
 .others-title { color:#00ff88; font-weight:bold; font-size:18px; margin-bottom:10px; }
 .others-item { margin:6px 0; }
 .others-label { color:#d4a017; }
+.req-section-title { color:#ff4d4d; font-weight:bold; margin-top:14px; margin-bottom:6px; }
+.req-cmd { color:#ccc; margin-left:10px; margin:3px 0; }
+.req-note { color:#888; margin-top:4px; margin-bottom:8px; }
 .discord-card {
   position:fixed; top:40px; right:40px; width:340px;
   background-color:#111214; border-radius:12px; overflow:hidden;
@@ -260,6 +263,7 @@ a:hover { text-decoration:underline; }
   <svg id="musicIconOn" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
   <svg id="musicIconOff" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="display:none;"><path d="M4.27 3L3 4.27l9 9v.28c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4v-1.73L19.73 21 21 19.73 4.27 3zM14 7h4V3h-6v5.18l2 2V7z"/></svg>
 </div>
+
 <div class="terminal" id="mainTerminal">
   <div id="mainMenu">
 <pre class="ascii-art">
@@ -275,16 +279,16 @@ a:hover { text-decoration:underline; }
  ██║     ██║██████╔╝██████╔╝███████║██████╔╝ ╚████╔╝
  ██║     ██║██╔══██╗██╔══██╗██╔══██║██╔══██╗  ╚██╔╝
  ███████╗██║██████╔╝██║  ██║██║  ██║██║  ██║   ██║
- ╚══════╝╚═╝╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝   ╚═╝ <span class="version-tag">v10</span>
+ ╚══════╝╚═╝╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝   ╚═╝ <span class="version-tag">v11</span>
 </pre>
     <div class="coded">Coded by Tuba<br>github: <a href="https://github.com/tubarao109875-status/tubarao109875.github.io" target="_blank">https://github.com/tubarao109875-status/tubarao109875.github.io</a></div>
     <div class="info-line">
-      <div><span class="label">Version:</span> <span class="value">10</span></div>
+      <div><span class="label">Version:</span> <span class="value">11</span></div>
       <div><span class="label">Author:</span> <span class="value">tubarao109875</span></div>
     </div>
     <div class="separator">────────────────────────────────────────────</div>
     <div class="menu-title">[::] Select a tool from the library [::]</div>
-    <div class="menu-option"><span class="num">[00]</span> <span class="name">Information</span></div>
+    <div class="menu-option"><span class="num">[00]</span> <span class="name">Required Tools</span></div>
     <div class="menu-option"><span class="num">[01]</span> <span class="name">Zphisher</span></div>
     <div class="menu-option"><span class="num">[02]</span> <span class="name">Fast-Mail-Bomber</span></div>
     <div class="menu-option"><span class="num">[03]</span> <span class="name">AL-Tools</span></div>
@@ -303,15 +307,34 @@ a:hover { text-decoration:underline; }
     </div>
   </div>
 
+  <!-- [00] Required Tools -->
   <div class="tool-page" id="page00">
-    <div class="info-page-title">╔══ INFORMATION ══╗</div>
-    <div class="info-item"><span class="il">Project:</span> <span class="iv">Tuba Library</span></div>
-    <div class="info-item"><span class="il">Version:</span> <span class="iv">10</span></div>
-    <div class="info-item"><span class="il">Author:</span> <span class="iv">tubarao109875</span> &nbsp;&nbsp; <span class="il">Contributor/Repo Finder:</span> <span class="iv">Wsp Kira</span></div>
-    <div class="info-item"><span class="il">GitHub:</span> <span class="iv"><a href="https://github.com/tubarao109875-status/tubarao109875.github.io" target="_blank">https://github.com/tubarao109875-status/tubarao109875.github.io</a></span></div>
-    <div class="info-item"><span class="il">Discord:</span> <span class="iv"><a href="https://discord.com/users/1485464472976887829" target="_blank">tubarao109875</a></span></div>
-    <div class="info-item"><span class="il">Description:</span> <span class="iv">A curated library of useful hacking & security tools.</span></div>
-    <div class="info-item"><span class="il">Note:</span> <span class="iv">For educational purposes only. Use responsibly.</span></div>
+    <div class="info-page-title">╔══ REQUIRED TOOLS ══╗</div>
+
+    <div class="req-section-title">WSL / Linux</div>
+    <div class="req-cmd">sudo apt install git</div>
+    <div class="req-cmd">sudo apt install python3</div>
+    <div class="req-cmd">sudo apt install php</div>
+
+    <div class="req-section-title">Termux</div>
+    <div class="req-cmd">pkg install git</div>
+    <div class="req-cmd">pkg install python3</div>
+    <div class="req-cmd">pkg install php</div>
+
+    <div class="separator">════════════════════════════════════════════════</div>
+
+    <div class="req-section-title">Where to install</div>
+    <div class="info-item"><span class="il">Termux:</span> <span class="iv"><a href="https://github.com/termux/termux-app/releases/tag/v0.118.3" target="_blank">https://github.com/termux/termux-app/releases/tag/v0.118.3</a></span></div>
+    <div class="info-item"><span class="il">WSL:</span> <span class="iv"><a href="https://learn.microsoft.com/en-us/windows/wsl/install" target="_blank">https://learn.microsoft.com/en-us/windows/wsl/install</a></span></div>
+
+    <div class="separator">════════════════════════════════════════════════</div>
+
+    <div class="req-section-title">Some commands</div>
+    <div class="info-item"><span class="il">cd:</span> <span class="iv">change directory (cd Downloads = set the terminal to the folder)</span></div>
+    <div class="info-item"><span class="il">bash:</span> <span class="iv">Bash is a shell (for running programs via Terminal)</span></div>
+    <div class="info-item"><span class="il">ls:</span> <span class="iv">list (show the full list of the folder you are in to find what you need)</span></div>
+    <div class="info-item"><span class="il">python3:</span> <span class="iv">run a python script</span></div>
+
     <div class="separator">────────────────────────────────────────────</div>
     <div class="back-btn">Type <span>"back"</span> to return to menu</div>
     <div class="terminal-input-line"><span class="prompt">╰─&gt; ():</span><input type="text" class="terminal-input page-input" data-page="page00" autocomplete="off"></div>
@@ -489,13 +512,13 @@ a:hover { text-decoration:underline; }
 
   <div class="tool-page" id="page09">
     <div class="tool-title axom">AXOM</div>
-    <div class="tool-info"><span class="gh-label">github:</span> <a href="https://github.com/dAY0ShACKER505/AXOM-FB-HACK" target="_blank">https://github.com/dAY0ShACKER505/AXOM-FB-HACK</a></div>
+    <div class="tool-info"><span class="gh-label">github:</span> <a href="https://github.com/dAYOShACKER505/AXOM-FB-HACK" target="_blank">https://github.com/dAYOShACKER505/AXOM-FB-HACK</a></div>
     <div class="how-to-use">
       <div class="how-label">Info how to use:</div>
       <div class="platform">Termux (Android):</div>
       <div class="cmd">pkg update && pkg upgrade -y</div>
       <div class="cmd">pkg install git python -y</div>
-      <div class="cmd">git clone https://github.com/dAY0ShACKER505/AXOM-FB-HACK</div>
+      <div class="cmd">git clone https://github.com/dAYOShACKER505/AXOM-FB-HACK</div>
       <div class="cmd">cd AXOM-FB-HACK</div>
       <div class="cmd">pip install -r requirements.txt</div>
       <div class="cmd">python axom.py</div>
@@ -507,7 +530,7 @@ a:hover { text-decoration:underline; }
     </div>
     <div class="lazy-section">
       <div class="lazy-label">⚡ For lazy people:</div>
-      <code class="lazy-cmd">git clone https://github.com/dAY0ShACKER505/AXOM-FB-HACK</code>
+      <code class="lazy-cmd">git clone https://github.com/dAYOShACKER505/AXOM-FB-HACK</code>
     </div>
     <div class="separator">────────────────────────────────────────────</div>
     <div class="back-btn">Type <span>"back"</span> to return to menu</div>
@@ -541,11 +564,23 @@ a:hover { text-decoration:underline; }
     <div class="terminal-input-line"><span class="prompt">╰─&gt; ():</span><input type="text" class="terminal-input page-input" data-page="page10" autocomplete="off"></div>
   </div>
 
+  <!-- [99] Others = Information + Credits -->
   <div class="tool-page" id="page99">
     <div class="others-title">╔══ OTHERS ══╗</div>
-    <br>
+
+    <div class="info-page-title" style="margin-top:10px;">Information</div>
+    <div class="info-item"><span class="il">Project:</span> <span class="iv">Tuba Library</span></div>
+    <div class="info-item"><span class="il">Version:</span> <span class="iv">11</span></div>
+    <div class="info-item"><span class="il">Author:</span> <span class="iv">tubarao109875</span> &nbsp;&nbsp; <span class="il">Contributor/Repo Finder:</span> <span class="iv">Wsp Kira</span></div>
+    <div class="info-item"><span class="il">GitHub:</span> <span class="iv"><a href="https://github.com/tubarao109875-status/tubarao109875.github.io" target="_blank">https://github.com/tubarao109875-status/tubarao109875.github.io</a></span></div>
+    <div class="info-item"><span class="il">Discord:</span> <span class="iv"><a href="https://discord.com/users/1485464472976887829" target="_blank">tubarao109875</a></span></div>
+    <div class="info-item"><span class="il">Description:</span> <span class="iv">A curated library of useful hacking &amp; security tools.</span></div>
+    <div class="info-item"><span class="il">Note:</span> <span class="iv">For educational purposes only. Use responsibly.</span></div>
+
+    <div class="separator">────────────────────────────────────────────</div>
+
     <div style="color:#00ff88; font-weight:bold; font-size:18px; margin-bottom:14px;">GitHub Repo Creators</div>
-    <div class="others-item"><span class="others-label">Site Owner:</span> <span class="creator-name">Tuba</span> — <a href="https://github.com/tubarao109875" target="_blank">https://github.com/tubarao109875</a></div>
+    <div class="others-item"><span class="others-label">Site Owner:</span> <span class="creator-name">Tuba</span> — <a href="https://github.com/tubarao109875-status" target="_blank">https://github.com/tubarao109875-status</a></div>
     <div class="others-item"><span class="others-label">AL-Tools:</span> <span class="creator-name">4lbH4cker</span> — <a href="https://github.com/4lbH4cker" target="_blank">https://github.com/4lbH4cker</a></div>
     <div class="others-item"><span class="others-label">Fast-Mail-Bomber:</span> <span class="creator-name">juzeon</span> — <a href="https://github.com/juzeon" target="_blank">https://github.com/juzeon</a></div>
     <div class="others-item"><span class="others-label">Zphisher:</span> <span class="creator-name">Tahmid Rayat</span> — <a href="https://github.com/htr-tech" target="_blank">https://github.com/htr-tech</a></div>
@@ -553,8 +588,9 @@ a:hover { text-decoration:underline; }
     <div class="others-item"><span class="others-label">Sherlock:</span> <span class="creator-name">Sherlock Project</span> — <a href="https://github.com/sherlock-project" target="_blank">https://github.com/sherlock-project</a></div>
     <div class="others-item"><span class="others-label">TOOLSS:</span> <span class="creator-name">AnonHackerr</span> — <a href="https://github.com/AnonHackerr" target="_blank">https://github.com/AnonHackerr</a></div>
     <div class="others-item"><span class="others-label">Doxing Tool:</span> <span class="creator-name">R3D-GHOST</span> — <a href="https://github.com/R3D-GHOST" target="_blank">https://github.com/R3D-GHOST</a></div>
-    <div class="others-item"><span class="others-label">AXOM:</span> <span class="creator-name">dAY0ShACKER505</span> — <a href="https://github.com/dAY0ShACKER505" target="_blank">https://github.com/dAY0ShACKER505</a></div>
+    <div class="others-item"><span class="others-label">AXOM:</span> <span class="creator-name">dAYOShACKER505</span> — <a href="https://github.com/dAYOShACKER505" target="_blank">https://github.com/dAYOShACKER505</a></div>
     <div class="others-item"><span class="others-label">Cariddi:</span> <span class="creator-name">edoardottt</span> — <a href="https://github.com/edoardottt" target="_blank">https://github.com/edoardottt</a></div>
+
     <div class="separator">────────────────────────────────────────────</div>
     <div class="back-btn">Type <span>"back"</span> to return to menu</div>
     <div class="terminal-input-line"><span class="prompt">╰─&gt; ():</span><input type="text" class="terminal-input page-input" data-page="page99" autocomplete="off"></div>
@@ -634,7 +670,8 @@ function showPage(pageId) {
     const input = page.querySelector('.page-input');
     if (input) setTimeout(() => input.focus(), 50);
   }
-  if (pageId === 'page00') {
+  // Discord card now shows on Others (page99)
+  if (pageId === 'page99') {
     discordCard.classList.add('show');
   } else {
     discordCard.classList.remove('show');
@@ -681,7 +718,6 @@ document.querySelectorAll('.page-input').forEach(input => {
   });
 });
 
-// Auto-focus terminal on click
 document.addEventListener('click', (e) => {
   if (terminal.classList.contains('active') && !e.target.closest('a') && !e.target.closest('button') && !e.target.closest('.music-btn') && !e.target.closest('.discord-card')) {
     const activePage = document.querySelector('.tool-page.active');
