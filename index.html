@@ -522,14 +522,22 @@ a:hover { text-decoration:underline; }
 ╚██████╗██║  ██║███████╗╚██████╗██║  ██╗███████╗██║  ██║
  ╚═════╝╚═╝  ╚═╝╚══════╝ ╚═════╝╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝
 </pre>
-    <div class="tool-info"><span class="gh-label">github:</span> <span style="color:#888;">No repository — Termux-based tool</span></div>
+    <div class="tool-info"><span class="gh-label">MediaFire:</span> <span style="color:#888;">https://www.mediafire.com/file/c6g4a0s762vhxkq/checkercpf.zip/file</span></div>
     <div class="how-to-use">
       <div class="how-label">Info how to use:</div>
-      <div class="platform">Termux (Android):</div>
-      <div class="cmd">pkg update && pkg upgrade -y</div>
-      <div class="cmd">pkg install python -y</div>
-      <div class="cmd">pip install requests</div>
-      <div class="cmd">python checkercpf.py</div>
+      <div class="platform">Termux (Android dont work on WSL):</div>
+      <div class="cmd">termux-setup-storage(Click “Accept”)</div>
+      <div class="cmd">(pkg update; pkg upgrade -y; pkg install unzip -y;cd /sdcard/download;unzip checkercpf.zip;cd checkercpf;bash install; ls)</div>
+      <div class="cmd">or do thing by thing</div>
+      <div class="cmd">pkg update</div>
+      <div class="cmd">pkg upgrade -y</div>
+      <div class="cmd">pkg install unzip -y</div>
+      <div class="cmd">cd /sdcard/download</div>
+      <div class="cmd">unzip checkercpf.zip</div>
+      <div class="cmd">cd checkercpf</div>
+      <div class="cmd">bash install</div>
+       <div class="cmd">ls</div>
+      <div class="cmd">python cherckcpf.py</div>
     </div>
     <div class="video-section">
       <div style="color:#00ff88; font-weight:bold; margin-bottom:6px;">Video Tutorial:</div>
