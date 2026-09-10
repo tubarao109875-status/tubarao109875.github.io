@@ -65,10 +65,8 @@ body::after {
 .ascii-art {
   font-weight:bold; font-size:14px; line-height:1; white-space:pre;
   background: radial-gradient(circle at center, #ff8888 0%, #ff4d4d 40%, #cc0000 80%, #660000 100%);
-  -webkit-background-clip:text; -webkit-text-fill-color:transparent;
-  background-clip:text;
-  filter: drop-shadow(0 0 8px rgba(255,60,60,0.4));
-  display:inline-block;
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+  filter: drop-shadow(0 0 8px rgba(255,60,60,0.4)); display:inline-block;
 }
 .version-tag { color:#ff4d4d; }
 .coded { color:#ff4d4d; margin-top:10px; }
@@ -85,30 +83,32 @@ a:hover { text-decoration:underline; }
 .terminal-input-line { margin-top:20px; display:flex; align-items:center; gap:5px; }
 .prompt { color:#ff4d4d; white-space:nowrap; }
 .terminal-input {
-  background:transparent; border:none; outline:none;
-  color:#fff; font-family:'Ubuntu Mono',monospace;
-  font-size:16px; flex:1; caret-color:#fff;
+  background:transparent; border:none; outline:none; color:#fff;
+  font-family:'Ubuntu Mono',monospace; font-size:16px; flex:1; caret-color:#fff;
 }
 .tool-page { display:none; }
 .tool-page.active { display:block; }
-.tool-title {
-  font-size: 42px; font-weight: bold; margin-bottom: 15px; letter-spacing: 3px;
-  background: radial-gradient(circle at center, #ffcccc, #ff4d4d, #660000);
-  -webkit-background-clip:text; -webkit-text-fill-color:transparent;
-  background-clip:text;
-  filter: drop-shadow(0 0 6px rgba(255,60,60,0.4));
-  display: inline-block;
+
+/* ANSI ASCII Title CSS */
+.ansi-title {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 14px; line-height: 1.1; font-weight: bold;
+  margin-bottom: 20px; display: inline-block; white-space: pre;
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
 }
-.tool-title.zphisher { background: radial-gradient(circle at center, #ffee00, #ff8800, #ff4400); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
-.tool-title.fastmail { background: radial-gradient(circle at center, #00ffcc, #0088ff, #0044cc); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
-.tool-title.altool { background: radial-gradient(circle at center, #ff88ff, #cc44ff, #8800cc); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
-.tool-title.hackingtool { background: radial-gradient(circle at center, #88ff88, #00cc44, #006622); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
-.tool-title.sherlock { background: radial-gradient(circle at center, #ffffff, #aaccff, #4488ff); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
-.tool-title.checkercpf { background: radial-gradient(circle at center, #ffcc00, #ff6600, #cc3300); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
-.tool-title.toolss { background: radial-gradient(circle at center, #ff99cc, #ff3366, #990033); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
-.tool-title.doxing { background: radial-gradient(circle at center, #ff4444, #aa0000, #440000); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
-.tool-title.axom { background: radial-gradient(circle at center, #66ffff, #0099cc, #003366); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
-.tool-title.cariddi { background: radial-gradient(circle at center, #ccff66, #66cc00, #336600); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+
+/* GRADIENTS FOR TITLES */
+.grad-01-orange { background-image: linear-gradient(90deg, #ffb347, #ff7b00); filter: drop-shadow(0 0 5px rgba(255,123,0,0.5)); }
+.grad-02-darkgrey { background-image: linear-gradient(90deg, #666666, #333333); filter: drop-shadow(0 0 5px rgba(100,100,100,0.5)); }
+.grad-03-red { background-image: linear-gradient(90deg, #ff6666, #cc0000); filter: drop-shadow(0 0 5px rgba(204,0,0,0.5)); }
+.grad-04-green { background-image: linear-gradient(90deg, #66ff66, #009900); filter: drop-shadow(0 0 5px rgba(0,153,0,0.5)); }
+.grad-05-blue { background-image: linear-gradient(90deg, #66b2ff, #004c99); filter: drop-shadow(0 0 5px rgba(0,76,153,0.5)); }
+.grad-06-white { background-image: linear-gradient(90deg, #ffffff, #b3b3b3); filter: drop-shadow(0 0 5px rgba(255,255,255,0.5)); }
+.grad-07-grey { background-image: linear-gradient(90deg, #a6a6a6, #737373); filter: drop-shadow(0 0 5px rgba(166,166,166,0.5)); }
+.grad-08-stdgrey { background-image: linear-gradient(90deg, #bfbfbf, #808080); filter: drop-shadow(0 0 5px rgba(128,128,128,0.5)); }
+.grad-09-gold { background-image: linear-gradient(90deg, #ffdf00, #b8860b); filter: drop-shadow(0 0 5px rgba(218,165,32,0.5)); }
+.grad-10-pink { background-image: linear-gradient(90deg, #ff99cc, #cc0066); filter: drop-shadow(0 0 5px rgba(204,0,102,0.5)); }
+
 .tool-info { margin-top:10px; }
 .tool-info .gh-label { color:#d4a017; }
 .how-to-use { margin-top:20px; }
@@ -123,36 +123,26 @@ a:hover { text-decoration:underline; }
 .info-item .iv { color:#fff; }
 .video-section { margin-top:20px; }
 .video-btn {
-  display:inline-block; background-color:#1a1a1a; color:#ff4d4d;
-  border:1px solid #ff4d4d; padding:8px 16px; border-radius:4px;
-  font-family:'Ubuntu Mono',monospace; font-size:14px; text-decoration:none;
-  margin-right:10px; margin-top:6px; transition:0.2s;
+  display:inline-block; background-color:#1a1a1a; color:#ff4d4d; border:1px solid #ff4d4d;
+  padding:8px 16px; border-radius:4px; font-family:'Ubuntu Mono',monospace; font-size:14px;
+  text-decoration:none; margin-right:10px; margin-top:6px; transition:0.2s;
 }
 .video-btn:hover { background-color:#ff4d4d; color:#000; text-decoration:none; }
-.lazy-section {
-  margin-top:20px; padding:12px 14px; background-color:#1a1a1a;
-  border-left:3px solid #00ff88; border-radius:4px;
-}
+.lazy-section { margin-top:20px; padding:12px 14px; background-color:#1a1a1a; border-left:3px solid #00ff88; border-radius:4px; }
 .lazy-label { color:#00ff88; font-weight:bold; margin-bottom:8px; font-size:14px; text-transform:uppercase; letter-spacing:0.5px; }
-.lazy-cmd {
-  color:#fff; background-color:#0a0a0a; padding:8px 12px; border-radius:4px;
-  display:block; word-break:break-all; font-size:13px; border:1px dashed #333;
-}
-.creator-name {
-  background: linear-gradient(90deg, #ff6666, #cc0000, #880000);
-  -webkit-background-clip:text; -webkit-text-fill-color:transparent;
-  background-clip:text; font-weight:bold;
-}
+.lazy-cmd { color:#fff; background-color:#0a0a0a; padding:8px 12px; border-radius:4px; display:block; word-break:break-all; font-size:13px; border:1px dashed #333; }
+.creator-name { background: linear-gradient(90deg, #ff6666, #cc0000, #880000); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; font-weight:bold; }
 .others-title { color:#00ff88; font-weight:bold; font-size:18px; margin-bottom:10px; }
 .others-item { margin:6px 0; }
 .others-label { color:#d4a017; }
 .req-section-title { color:#ff4d4d; font-weight:bold; margin-top:14px; margin-bottom:6px; }
 .req-cmd { color:#ccc; margin-left:10px; margin:3px 0; }
 .req-note { color:#888; margin-top:4px; margin-bottom:8px; }
+
+/* Discord Card Styles */
 .discord-card {
-  position:fixed; top:40px; right:40px; width:340px;
-  background-color:#111214; border-radius:12px; overflow:hidden;
-  font-family:'Noto Sans','gg sans',Arial,sans-serif;
+  position:fixed; top:40px; right:40px; width:340px; background-color:#111214; border-radius:12px;
+  overflow:hidden; font-family:'Noto Sans','gg sans',Arial,sans-serif;
   box-shadow: 0 8px 20px rgba(0,0,0,0.6); z-index:5; color:#dbdee1; display:none;
 }
 .discord-card.show { display:block; }
@@ -177,27 +167,54 @@ a:hover { text-decoration:underline; }
 .dc-role .dot { width:8px; height:8px; border-radius:50%; display:inline-block; }
 .dc-role.tuba-rgb { color:#fff; animation: rgbText 4s linear infinite; }
 .dc-role.tuba-rgb .dot { animation: rgbDot 4s linear infinite; }
-@keyframes rgbText {
-  0%{color:#ff0000;}16%{color:#ff8800;}33%{color:#ffee00;}
-  50%{color:#00ff44;}66%{color:#00aaff;}83%{color:#aa00ff;}100%{color:#ff0000;}
-}
-@keyframes rgbDot {
-  0%{background-color:#ff0000;box-shadow:0 0 6px #ff0000;}16%{background-color:#ff8800;box-shadow:0 0 6px #ff8800;}
-  33%{background-color:#ffee00;box-shadow:0 0 6px #ffee00;}50%{background-color:#00ff44;box-shadow:0 0 6px #00ff44;}
-  66%{background-color:#00aaff;box-shadow:0 0 6px #00aaff;}83%{background-color:#aa00ff;box-shadow:0 0 6px #aa00ff;}
-  100%{background-color:#ff0000;box-shadow:0 0 6px #ff0000;}
-}
-.music-btn {
-  position:fixed; bottom:20px; left:20px; width:50px; height:50px;
+@keyframes rgbText { 0%{color:#ff0000;}16%{color:#ff8800;}33%{color:#ffee00;} 50%{color:#00ff44;}66%{color:#00aaff;}83%{color:#aa00ff;}100%{color:#ff0000;} }
+@keyframes rgbDot { 0%{background-color:#ff0000;box-shadow:0 0 6px #ff0000;}16%{background-color:#ff8800;box-shadow:0 0 6px #ff8800;} 33%{background-color:#ffee00;box-shadow:0 0 6px #ffee00;}50%{background-color:#00ff44;box-shadow:0 0 6px #00ff44;} 66%{background-color:#00aaff;box-shadow:0 0 6px #00aaff;}83%{background-color:#aa00ff;box-shadow:0 0 6px #aa00ff;} 100%{background-color:#ff0000;box-shadow:0 0 6px #ff0000;} }
+
+/* Music & Review Buttons */
+.music-btn, .review-btn {
+  position:fixed; bottom:20px; width:50px; height:50px;
   background-color:#1a1a1a; border:1px solid #333; border-radius:50%;
   display:none; justify-content:center; align-items:center; cursor:pointer;
   z-index:100; transition: background-color 0.3s, border-color 0.3s, transform 0.15s;
 }
-.music-btn.visible { display:flex; }
-.music-btn:hover { transform:scale(1.08); }
+.music-btn { left:20px; }
+.review-btn { left: 80px; font-size: 22px; } /* Posicionado ao lado do som */
+
+.music-btn.visible, .review-btn.visible { display:flex; }
+.music-btn:hover, .review-btn:hover { transform:scale(1.08); background-color: #2a2a2a; }
 .music-btn svg { width:24px; height:24px; fill:#fff; transition:fill 0.3s; }
 .music-btn.muted { background-color:#cc0000; border-color:#ff4d4d; box-shadow: 0 0 10px rgba(255,77,77,0.4); }
-.music-btn.muted svg { fill:#fff; }
+
+/* Review Modal CSS */
+.review-overlay {
+  position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(0,0,0,0.8); z-index: 200; display: none;
+  justify-content: center; align-items: center; font-family: 'Ubuntu Mono', monospace;
+}
+.review-overlay.active { display: flex; }
+.review-modal {
+  background: #111; border: 1px solid #d4a017; padding: 25px;
+  border-radius: 8px; width: 400px; max-width: 90%; box-shadow: 0 0 15px rgba(212, 160, 23, 0.3);
+}
+.review-modal h2 { color: #d4a017; margin-bottom: 15px; text-align: center; }
+.review-form-group { margin-bottom: 15px; }
+.review-form-group label { display: block; color: #888; margin-bottom: 5px; font-size: 14px; }
+.review-form-group input, .review-form-group textarea {
+  width: 100%; background: #000; border: 1px solid #333; color: #fff;
+  padding: 10px; font-family: 'Ubuntu Mono', monospace; outline: none;
+}
+.review-form-group input:focus, .review-form-group textarea:focus { border-color: #00ff88; }
+.review-buttons { display: flex; gap: 10px; margin-top: 20px; }
+.review-buttons button {
+  flex: 1; padding: 10px; border: none; cursor: pointer; font-family: 'Ubuntu Mono', monospace; font-weight: bold; border-radius: 4px;
+}
+.btn-submit { background: #00ff88; color: #000; }
+.btn-submit:hover { background: #00cc66; }
+.btn-clear { background: #555; color: #fff; }
+.btn-clear:hover { background: #777; }
+.btn-cancel { background: #ff4d4d; color: #000; }
+.btn-cancel:hover { background: #cc0000; }
+
 @media (max-width:900px) {
   .discord-card { position:relative; top:auto; right:auto; margin:20px auto; display:none; }
   .discord-card.show { display:block; }
@@ -224,6 +241,7 @@ a:hover { text-decoration:underline; }
 <audio id="bgMusic" loop><source src="truth yandere.mp3" type="audio/mpeg"></audio>
 
 <div class="discord-card" id="discordCard">
+  <!-- Conteúdo do Cartão do Discord Mantido Exatamente Igual -->
   <div class="dc-banner" style="background-image: url('evilsaka.gif');"></div>
   <div class="dc-avatar-wrap">
     <div class="dc-avatar" style="background-image: url('Postal tuba.png');"></div>
@@ -259,9 +277,36 @@ a:hover { text-decoration:underline; }
   </div>
 </div>
 
+<!-- Buttons Bottom Left -->
 <div class="music-btn" id="musicBtn" title="Mute / Unmute">
   <svg id="musicIconOn" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
   <svg id="musicIconOff" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="display:none;"><path d="M4.27 3L3 4.27l9 9v.28c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4v-1.73L19.73 21 21 19.73 4.27 3zM14 7h4V3h-6v5.18l2 2V7z"/></svg>
+</div>
+
+<div class="review-btn" id="reviewBtn" title="Leave a Review">⭐</div>
+
+<!-- Review Modal -->
+<div class="review-overlay" id="reviewOverlay">
+  <div class="review-modal">
+    <h2>Leave a Review</h2>
+    <div class="review-form-group">
+      <label>Name</label>
+      <input type="text" id="revName" placeholder="Anonymous">
+    </div>
+    <div class="review-form-group">
+      <label>Rating (0/10) - Optional</label>
+      <input type="number" id="revRating" min="0" max="10" placeholder="10">
+    </div>
+    <div class="review-form-group">
+      <label>Your review for the site</label>
+      <textarea id="revText" rows="4" placeholder="Write your thoughts here..."></textarea>
+    </div>
+    <div class="review-buttons">
+      <button class="btn-submit" id="btnSubmitRev">Submit</button>
+      <button class="btn-clear" id="btnClearRev">Clear</button>
+      <button class="btn-cancel" id="btnCancelRev">Cancel</button>
+    </div>
+  </div>
 </div>
 
 <div class="terminal" id="mainTerminal">
@@ -310,38 +355,39 @@ a:hover { text-decoration:underline; }
   <!-- [00] Required Tools -->
   <div class="tool-page" id="page00">
     <div class="info-page-title">╔══ REQUIRED TOOLS ══╗</div>
-
     <div class="req-section-title">WSL / Linux</div>
     <div class="req-cmd">sudo apt install git</div>
     <div class="req-cmd">sudo apt install python3</div>
     <div class="req-cmd">sudo apt install php</div>
-
     <div class="req-section-title">Termux</div>
     <div class="req-cmd">pkg install git</div>
     <div class="req-cmd">pkg install python3</div>
     <div class="req-cmd">pkg install php</div>
-
     <div class="separator">════════════════════════════════════════════════</div>
-
     <div class="req-section-title">Where to install</div>
     <div class="info-item"><span class="il">Termux:</span> <span class="iv"><a href="https://github.com/termux/termux-app/releases/tag/v0.118.3" target="_blank">https://github.com/termux/termux-app/releases/tag/v0.118.3</a></span></div>
     <div class="info-item"><span class="il">WSL:</span> <span class="iv"><a href="https://learn.microsoft.com/en-us/windows/wsl/install" target="_blank">https://learn.microsoft.com/en-us/windows/wsl/install</a></span></div>
-
     <div class="separator">════════════════════════════════════════════════</div>
-
     <div class="req-section-title">Some commands</div>
     <div class="info-item"><span class="il">cd:</span> <span class="iv">change directory (cd Downloads = set the terminal to the folder)</span></div>
     <div class="info-item"><span class="il">bash:</span> <span class="iv">Bash is a shell (for running programs via Terminal)</span></div>
     <div class="info-item"><span class="il">ls:</span> <span class="iv">list (show the full list of the folder you are in to find what you need)</span></div>
     <div class="info-item"><span class="il">python3:</span> <span class="iv">run a python script</span></div>
-
     <div class="separator">────────────────────────────────────────────</div>
     <div class="back-btn">Type <span>"back"</span> to return to menu</div>
     <div class="terminal-input-line"><span class="prompt">╰─&gt; ():</span><input type="text" class="terminal-input page-input" data-page="page00" autocomplete="off"></div>
   </div>
 
+  <!-- [01] Zphisher (Orange) -->
   <div class="tool-page" id="page01">
-    <div class="tool-title zphisher">ZPHISHER</div>
+<pre class="ansi-title grad-01-orange">
+███████╗██████╗ ██╗ ██╗██╗███████╗██╗ ██╗███████╗██████╗
+╚══███╔╝██╔══██╗██║ ██║██║██╔════╝██║ ██║██╔════╝██╔══██╗
+  ███╔╝ ██████╔╝███████║██║███████╗███████║█████╗  ██████╔╝
+ ███╔╝  ██╔═══╝ ██╔══██║██║╚════██║██╔══██║██╔══╝  ██╔══██╗
+███████╗██║     ██║  ██║██║███████║██║  ██║███████╗██║  ██║
+╚══════╝╚═╝     ╚═╝  ╚═╝╚═╝╚══════╝╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝
+</pre>
     <div class="tool-info"><span class="gh-label">github:</span> <a href="https://github.com/htr-tech/zphisher" target="_blank">https://github.com/htr-tech/zphisher</a></div>
     <div class="how-to-use">
       <div class="how-label">Info how to use:</div>
@@ -357,8 +403,16 @@ a:hover { text-decoration:underline; }
     <div class="terminal-input-line"><span class="prompt">╰─&gt; ():</span><input type="text" class="terminal-input page-input" data-page="page01" autocomplete="off"></div>
   </div>
 
+  <!-- [02] Fast-Mail-Bomber (Dark Grey) -->
   <div class="tool-page" id="page02">
-    <div class="tool-title fastmail">FAST-MAIL-BOMBER</div>
+<pre class="ansi-title grad-02-darkgrey">
+███████╗ █████╗ ███████╗████████╗    ███╗   ███╗███████╗██╗██╗
+██╔════╝██╔══██╗██╔════╝╚══██╔══╝    ████╗ ████║██╔════╝██║██║
+█████╗  ███████║███████╗   ██║       ██╔████╔██║█████╗  ██║██║
+██╔══╝  ██╔══██║╚════██║   ██║       ██║╚██╔╝██║██╔══╝  ██║██║
+██║     ██║  ██║███████║   ██║       ██║ ╚═╝ ██║███████╗██║███████╗
+╚═╝     ╚═╝  ╚═╝╚══════╝   ╚═╝       ╚═╝     ╚═╝╚══════╝╚═╝╚══════╝
+</pre>
     <div class="tool-info"><span class="gh-label">github:</span> <a href="https://github.com/juzeon/fast-mail-bomber" target="_blank">https://github.com/juzeon/fast-mail-bomber</a></div>
     <div class="how-to-use">
       <div class="how-label">Info how to use:</div>
@@ -377,8 +431,16 @@ a:hover { text-decoration:underline; }
     <div class="terminal-input-line"><span class="prompt">╰─&gt; ():</span><input type="text" class="terminal-input page-input" data-page="page02" autocomplete="off"></div>
   </div>
 
+  <!-- [03] AL-Tools (Red) -->
   <div class="tool-page" id="page03">
-    <div class="tool-title altool">AL-TOOLS</div>
+<pre class="ansi-title grad-03-red">
+ █████╗ ██╗         ████████╗██████╗  ██████╗ ██╗     ███████╗
+██╔══██╗██║         ╚══██╔══╝██╔══██╗██╔═══██╗██║     ██╔════╝
+███████║██║            ██║   ██║  ██║██║   ██║██║     ███████╗
+██╔══██║██║            ██║   ██║  ██║██║   ██║██║     ╚════██║
+██║  ██║███████╗       ██║   ██████╔╝╚██████╔╝███████╗███████║
+╚═╝  ╚═╝╚══════╝       ╚═╝   ╚═════╝  ╚═════╝ ╚══════╝╚══════╝
+</pre>
     <div class="tool-info"><span class="gh-label">github:</span> <a href="https://github.com/4lbH4cker/ALHacking/" target="_blank">https://github.com/4lbH4cker/ALHacking/</a></div>
     <div class="how-to-use">
       <div class="how-label">Info how to use:</div>
@@ -394,8 +456,16 @@ a:hover { text-decoration:underline; }
     <div class="terminal-input-line"><span class="prompt">╰─&gt; ():</span><input type="text" class="terminal-input page-input" data-page="page03" autocomplete="off"></div>
   </div>
 
+  <!-- [04] HackingTool (Green) -->
   <div class="tool-page" id="page04">
-    <div class="tool-title hackingtool">HACKINGTOOL</div>
+<pre class="ansi-title grad-04-green">
+██╗  ██╗███████╗ ██████╗██╗  ██╗██╗███╗   ██╗██████╗ 
+██║  ██║██╔════╝██╔════╝██║ ██╔╝██║████╗  ██║██╔══██╗
+███████║█████╗  ██║     █████╔╝ ██║██╔██╗ ██║██║  ██║
+██╔══██║██╔══╝  ██║     ██╔═██╗ ██║██║╚██╗██║██║  ██║
+██║  ██║███████╗╚██████╗██║  ██╗██║██║ ╚████║██████╔╝
+╚═╝  ╚═╝╚══════╝ ╚═════╝╚═╝  ╚═╝╚═╝╚═╝  ╚═══╝╚═════╝ 
+</pre>
     <div class="tool-info"><span class="gh-label">github:</span> <a href="https://github.com/mishakorzik/AllHackingTools" target="_blank">https://github.com/mishakorzik/AllHackingTools</a></div>
     <div class="how-to-use">
       <div class="how-label">Info how to use:</div>
@@ -412,8 +482,16 @@ a:hover { text-decoration:underline; }
     <div class="terminal-input-line"><span class="prompt">╰─&gt; ():</span><input type="text" class="terminal-input page-input" data-page="page04" autocomplete="off"></div>
   </div>
 
+  <!-- [05] Sherlock (Blue) -->
   <div class="tool-page" id="page05">
-    <div class="tool-title sherlock">SHERLOCK</div>
+<pre class="ansi-title grad-05-blue">
+███████╗██╗  ██╗███████╗██████╗ ██╗      ██████╗  ██████╗██╗  ██╗
+██╔════╝██║  ██║██╔════╝██╔══██╗██║     ██╔═══██╗██╔════╝██║ ██╔╝
+███████╗███████║█████╗  ██████╔╝██║     ██║   ██║██║     █████╔╝ 
+╚════██║██╔══██║██╔══╝  ██╔══██╗██║     ██║   ██║██║     ██╔═██╗ 
+███████║██║  ██║███████╗██║  ██║███████╗╚██████╔╝╚██████╗██║  ██╗
+╚══════╝╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝╚══════╝ ╚═════╝  ╚═════╝╚═╝  ╚═╝
+</pre>
     <div class="tool-info"><span class="gh-label">github:</span> <a href="https://github.com/sherlock-project/sherlock" target="_blank">https://github.com/sherlock-project/sherlock</a></div>
     <div class="how-to-use">
       <div class="how-label">Info how to use:</div>
@@ -428,15 +506,22 @@ a:hover { text-decoration:underline; }
     <div class="video-section">
       <div style="color:#00ff88; font-weight:bold; margin-bottom:6px;">Video Tutorial:</div>
       <a href="https://www.youtube.com/watch?v=24xBAHDfLA8" target="_blank" class="video-btn">▶ Watch on YouTube</a>
-      <a href="https://rr11---sn-pmcg-bg0k.googlevideo.com/videoplayback?expire=1784798928&ei=cIphatDqBZ_cp-oPjbzggAo&ip=45.39.50.191&id=o-ADtIcjGq3pv2aCvXHy3H5CM7a1aPhJUAiWhL3Ez7aZzy&itag=18&source=youtube&requiressl=yes&sig=AE0s2JYwRAIgWp7S8lyvlmoG9IlczIPamVzNUGiWA_DPQZk7r9SYBXMCIHpFoOl634Q4O-3WCz8aiSwJtmygdmVWde208LYGBpGk" target="_blank" class="video-btn">▶ Direct Video</a>
     </div>
     <div class="separator">────────────────────────────────────────────</div>
     <div class="back-btn">Type <span>"back"</span> to return to menu</div>
     <div class="terminal-input-line"><span class="prompt">╰─&gt; ():</span><input type="text" class="terminal-input page-input" data-page="page05" autocomplete="off"></div>
   </div>
 
+  <!-- [06] CheckerCPF (White) -->
   <div class="tool-page" id="page06">
-    <div class="tool-title checkercpf">CHECKERCPF</div>
+<pre class="ansi-title grad-06-white">
+ ██████╗██╗  ██╗███████╗ ██████╗██╗  ██╗███████╗██████╗ 
+██╔════╝██║  ██║██╔════╝██╔════╝██║ ██╔╝██╔════╝██╔══██╗
+██║     ███████║█████╗  ██║     █████╔╝ █████╗  ██████╔╝
+██║     ██╔══██║██╔══╝  ██║     ██╔═██╗ ██╔══╝  ██╔══██╗
+╚██████╗██║  ██║███████╗╚██████╗██║  ██╗███████╗██║  ██║
+ ╚═════╝╚═╝  ╚═╝╚══════╝ ╚═════╝╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝
+</pre>
     <div class="tool-info"><span class="gh-label">github:</span> <span style="color:#888;">No repository — Termux-based tool</span></div>
     <div class="how-to-use">
       <div class="how-label">Info how to use:</div>
@@ -449,15 +534,22 @@ a:hover { text-decoration:underline; }
     <div class="video-section">
       <div style="color:#00ff88; font-weight:bold; margin-bottom:6px;">Video Tutorial:</div>
       <a href="https://www.youtube.com/watch?v=nlYHutg8kqU" target="_blank" class="video-btn">▶ Watch on YouTube</a>
-      <a href="https://rr2---sn-pmcg-bg0s.googlevideo.com/videoplayback?expire=1784798821&ei=BYphasz1IJnJ1sQP6vm38Ak&ip=23.129.253.223&id=o-AGDAbqGlDshtHISQ367ZD92EcuSmsenJGyzJe06xJMAw&itag=18&source=youtube&requiressl=yes&sig=AE0s2JYwRQIhALZxmHScGmgFDR8wgsmGTqprecZZZhO5NMNu5pJK43VmAiBJfJJ8Af2XPdDzdzXTvrdtWDQS5G20kt_3hqUcOvjaAQ%3D%3D" target="_blank" class="video-btn">▶ Direct Video</a>
     </div>
     <div class="separator">────────────────────────────────────────────</div>
     <div class="back-btn">Type <span>"back"</span> to return to menu</div>
     <div class="terminal-input-line"><span class="prompt">╰─&gt; ():</span><input type="text" class="terminal-input page-input" data-page="page06" autocomplete="off"></div>
   </div>
 
+  <!-- [07] TOOLSS (Grey) -->
   <div class="tool-page" id="page07">
-    <div class="tool-title toolss">TOOLSS</div>
+<pre class="ansi-title grad-07-grey">
+████████╗ ██████╗  ██████╗ ██╗     ███████╗███████╗
+╚══██╔══╝██╔═══██╗██╔═══██╗██║     ██╔════╝██╔════╝
+   ██║   ██║   ██║██║   ██║██║     ███████╗███████╗
+   ██║   ██║   ██║██║   ██║██║     ╚════██║╚════██║
+   ██║   ╚██████╔╝╚██████╔╝███████╗███████║███████║
+   ╚═╝    ╚═════╝  ╚═════╝ ╚══════╝╚══════╝╚══════╝
+</pre>
     <div class="tool-info"><span class="gh-label">github:</span> <a href="https://github.com/AnonHackerr/toolss" target="_blank">https://github.com/AnonHackerr/toolss</a></div>
     <div class="how-to-use">
       <div class="how-label">Info how to use:</div>
@@ -472,7 +564,6 @@ a:hover { text-decoration:underline; }
     <div class="video-section">
       <div style="color:#00ff88; font-weight:bold; margin-bottom:6px;">Video Tutorial:</div>
       <a href="https://www.youtube.com/watch?v=yendaKe1OXc" target="_blank" class="video-btn">▶ Watch on YouTube</a>
-      <a href="https://rr2---sn-bg0e6ne6.googlevideo.com/videoplayback?expire=1784804653&ei=zaBhasvpEaf2xN8PmZyh0As&ip=217.198.177.25&id=o-AOPCGi2n5n7qiUH_qAS0Ybxuqpn3joIXrvLTNAne-aLB&itag=18&source=youtube&sig=AE0s2JYwRQIgIJcgQEZqpuPTcgwTBfqJTPWOg8tcHBjqE-Yyn4iYA1wCIQDouNSd--sNYpsn2QohTkedvvMM0waqTGJZjza6ofuN0A%3D%3D" target="_blank" class="video-btn">▶ Direct Video</a>
     </div>
     <div class="lazy-section">
       <div class="lazy-label">😛😛😛 For lazy people:</div>
@@ -483,8 +574,16 @@ a:hover { text-decoration:underline; }
     <div class="terminal-input-line"><span class="prompt">╰─&gt; ():</span><input type="text" class="terminal-input page-input" data-page="page07" autocomplete="off"></div>
   </div>
 
+  <!-- [08] Doxing Tool (Standard Grey) -->
   <div class="tool-page" id="page08">
-    <div class="tool-title doxing">DOXING TOOL</div>
+<pre class="ansi-title grad-08-stdgrey">
+██████╗  ██████╗ ██╗  ██╗██╗███╗   ██╗ ██████╗ 
+██╔══██╗██╔═══██╗╚██╗██╔╝██║████╗  ██║██╔════╝ 
+██║  ██║██║   ██║ ╚███╔╝ ██║██╔██╗ ██║██║  ███╗
+██║  ██║██║   ██║ ██╔██╗ ██║██║╚██╗██║██║   ██║
+██████╔╝╚██████╔╝██╔╝ ██╗██║██║ ╚████║╚██████╔╝
+╚═════╝  ╚═════╝ ╚═╝  ╚═╝╚═╝╚═╝  ╚═══╝ ╚═════╝ 
+</pre>
     <div class="tool-info"><span class="gh-label">github:</span> <a href="https://github.com/R3D-GHOST/Doxing-tool" target="_blank">https://github.com/R3D-GHOST/Doxing-tool</a></div>
     <div class="how-to-use">
       <div class="how-label">Info how to use:</div>
@@ -499,7 +598,6 @@ a:hover { text-decoration:underline; }
     <div class="video-section">
       <div style="color:#00ff88; font-weight:bold; margin-bottom:6px;">Video Tutorial:</div>
       <a href="https://www.youtube.com/watch?v=AoxTFf_wp8E" target="_blank" class="video-btn">▶ Watch on YouTube</a>
-      <a href="https://rr8---sn-pmcg-bg0d.googlevideo.com/videoplayback?expire=1784804721&ei=EKFharHyOa-_mLAP8r6F4Qo&ip=31.59.15.192&id=o-ADUgOXukonjL08HNN6S46hfo-QC5aVhOqhw5YmcnM5hB&itag=18&sig=AE0s2JYwRAIgQyYJofN9r_XjxXJ9ZXVcFpgL3K8DCyMbZcn61IOGc2ACIF8zW0CB9YcIPGbUw1Z3luXA7F1xhKZYcfH-nQFpovuj" target="_blank" class="video-btn">▶ Direct Video</a>
     </div>
     <div class="lazy-section">
       <div class="lazy-label">😛😛😛 For lazy people:</div>
@@ -510,8 +608,16 @@ a:hover { text-decoration:underline; }
     <div class="terminal-input-line"><span class="prompt">╰─&gt; ():</span><input type="text" class="terminal-input page-input" data-page="page08" autocomplete="off"></div>
   </div>
 
+  <!-- [09] AXOM (Gold) -->
   <div class="tool-page" id="page09">
-    <div class="tool-title axom">AXOM</div>
+<pre class="ansi-title grad-09-gold">
+ █████╗ ██╗  ██╗ ██████╗ ███╗   ███╗
+██╔══██╗╚██╗██╔╝██╔═══██╗████╗ ████║
+███████║ ╚███╔╝ ██║   ██║██╔████╔██║
+██╔══██║ ██╔██╗ ██║   ██║██║╚██╔╝██║
+██║  ██║██╔╝ ██╗╚██████╔╝██║ ╚═╝ ██║
+╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝ ╚═╝     ╚═╝
+</pre>
     <div class="tool-info"><span class="gh-label">github:</span> <a href="https://github.com/dAYOShACKER505/AXOM-FB-HACK" target="_blank">https://github.com/dAYOShACKER505/AXOM-FB-HACK</a></div>
     <div class="how-to-use">
       <div class="how-label">Info how to use:</div>
@@ -526,7 +632,6 @@ a:hover { text-decoration:underline; }
     <div class="video-section">
       <div style="color:#00ff88; font-weight:bold; margin-bottom:6px;">Video Tutorial:</div>
       <a href="https://www.youtube.com/watch?v=_h-UfeJXNDE" target="_blank" class="video-btn">▶ Watch on YouTube</a>
-      <a href="https://rr17---sn-pmcg-bg0z.googlevideo.com/videoplayback?expire=1784804771&ei=Q6FhaqGGGruP8uMPxNmd6Qc&ip=104.252.136.15&id=o-APC81WMyx1MPgGpXbR6-nAiR4Y6OJ2yIfozufokAatvd&itag=18&sig=AE0s2JYwRQIhAJaIv-bL5MMjaGrgydt1zmTCck1P2WgbwxoNhXcnyYlxAiB-2ghI-fAf5Lg1PPtFlqsxn47-dJ81SvpDlY8oRWiz3g%3D%3D" target="_blank" class="video-btn">▶ Direct Video</a>
     </div>
     <div class="lazy-section">
       <div class="lazy-label">😛😛😛 For lazy people:</div>
@@ -537,8 +642,16 @@ a:hover { text-decoration:underline; }
     <div class="terminal-input-line"><span class="prompt">╰─&gt; ():</span><input type="text" class="terminal-input page-input" data-page="page09" autocomplete="off"></div>
   </div>
 
+  <!-- [10] Cariddi (Pinkish) -->
   <div class="tool-page" id="page10">
-    <div class="tool-title cariddi">CARIDDI</div>
+<pre class="ansi-title grad-10-pink">
+ ██████╗ █████╗ ██████╗ ██╗██████╗ ██████╗ ██╗
+██╔════╝██╔══██╗██╔══██╗██║██╔══██╗██╔══██╗██║
+██║     ███████║██████╔╝██║██║  ██║██║  ██║██║
+██║     ██╔══██║██╔══██╗██║██║  ██║██║  ██║██║
+╚██████╗██║  ██║██║  ██║██║██████╔╝██████╔╝██║
+ ╚═════╝╚═╝  ╚═╝╚═╝  ╚═╝╚═╝╚═════╝ ╚═════╝ ╚═╝
+</pre>
     <div class="tool-info"><span class="gh-label">github:</span> <a href="https://github.com/edoardottt/cariddi" target="_blank">https://github.com/edoardottt/cariddi</a></div>
     <div class="how-to-use">
       <div class="how-label">Info how to use:</div>
@@ -553,7 +666,6 @@ a:hover { text-decoration:underline; }
     <div class="video-section">
       <div style="color:#00ff88; font-weight:bold; margin-bottom:6px;">Video Tutorial:</div>
       <a href="https://www.youtube.com/watch?v=LUNqDJTvXt0" target="_blank" class="video-btn">▶ Watch on YouTube</a>
-      <a href="https://rr12---sn-pmcg-bg0z.googlevideo.com/videoplayback?expire=1784804884&ei=tKFhasGFFY_DkucP4ueN4Q4&ip=82.23.203.236&id=o-AE9LP4LGbPHtxPY7b21H0cqJE5OgTJJdZJioGY4P2A40&itag=18&sig=AE0s2JYwRQIhAPR7rd51Winkl8u841_GjrcMwngWREJOTxa26Upx0FeTAiAcsq9Dgf2W3rdgxQlqAqypNiMO4RQnKRt7tMFvIhOIuw%3D%3D" target="_blank" class="video-btn">▶ Direct Video</a>
     </div>
     <div class="lazy-section">
       <div class="lazy-label">😛😛😛 For lazy people:</div>
@@ -564,10 +676,9 @@ a:hover { text-decoration:underline; }
     <div class="terminal-input-line"><span class="prompt">╰─&gt; ():</span><input type="text" class="terminal-input page-input" data-page="page10" autocomplete="off"></div>
   </div>
 
-  <!-- [99] Others = Information + Credits -->
+  <!-- [99] Others -->
   <div class="tool-page" id="page99">
     <div class="others-title">╔══ OTHERS ══╗</div>
-
     <div class="info-page-title" style="margin-top:10px;">Information</div>
     <div class="info-item"><span class="il">Project:</span> <span class="iv">Tuba Library</span></div>
     <div class="info-item"><span class="il">Version:</span> <span class="iv">11</span></div>
@@ -576,9 +687,7 @@ a:hover { text-decoration:underline; }
     <div class="info-item"><span class="il">Discord:</span> <span class="iv"><a href="https://discord.com/users/1485464472976887829" target="_blank">tubarao109875</a></span></div>
     <div class="info-item"><span class="il">Description:</span> <span class="iv">A curated library of useful hacking &amp; security tools.</span></div>
     <div class="info-item"><span class="il">Note:</span> <span class="iv">For educational purposes only. Use responsibly.</span></div>
-
     <div class="separator">────────────────────────────────────────────</div>
-
     <div style="color:#00ff88; font-weight:bold; font-size:18px; margin-bottom:14px;">GitHub Repo Creators</div>
     <div class="others-item"><span class="others-label">Site Owner:</span> <span class="creator-name">Tuba</span> — <a href="https://github.com/tubarao109875-status" target="_blank">https://github.com/tubarao109875-status</a></div>
     <div class="others-item"><span class="others-label">AL-Tools:</span> <span class="creator-name">4lbH4cker</span> — <a href="https://github.com/4lbH4cker" target="_blank">https://github.com/4lbH4cker</a></div>
@@ -590,7 +699,6 @@ a:hover { text-decoration:underline; }
     <div class="others-item"><span class="others-label">Doxing Tool:</span> <span class="creator-name">R3D-GHOST</span> — <a href="https://github.com/R3D-GHOST" target="_blank">https://github.com/R3D-GHOST</a></div>
     <div class="others-item"><span class="others-label">AXOM:</span> <span class="creator-name">dAYOShACKER505</span> — <a href="https://github.com/dAYOShACKER505" target="_blank">https://github.com/dAYOShACKER505</a></div>
     <div class="others-item"><span class="others-label">Cariddi:</span> <span class="creator-name">edoardottt</span> — <a href="https://github.com/edoardottt" target="_blank">https://github.com/edoardottt</a></div>
-
     <div class="separator">────────────────────────────────────────────</div>
     <div class="back-btn">Type <span>"back"</span> to return to menu</div>
     <div class="terminal-input-line"><span class="prompt">╰─&gt; ():</span><input type="text" class="terminal-input page-input" data-page="page99" autocomplete="off"></div>
@@ -598,6 +706,7 @@ a:hover { text-decoration:underline; }
 </div>
 
 <script>
+// --- CORE FUNCTIONALITY ---
 const copyScreen = document.getElementById('copyrightScreen');
 const keyScreen = document.getElementById('keyScreen');
 const keyInput = document.getElementById('keyInput');
@@ -611,6 +720,10 @@ const bgMusic = document.getElementById('bgMusic');
 const musicBtn = document.getElementById('musicBtn');
 const musicIconOn = document.getElementById('musicIconOn');
 const musicIconOff = document.getElementById('musicIconOff');
+const reviewBtn = document.getElementById('reviewBtn');
+
+// Webhook Link for Reviews
+const webhookUrl = "WEBHOOK HERE!!"; 
 
 async function _h(s) {
   const e = new TextEncoder().encode(s);
@@ -643,6 +756,7 @@ async function checkKey() {
       bgMusic.volume = 0.4;
       bgMusic.play().catch(err => console.log("Autoplay blocked:", err));
       musicBtn.classList.add('visible');
+      reviewBtn.classList.add('visible');
     }, 600);
   } else {
     errorMsg.textContent = '✗ Invalid key. Try again.';
@@ -670,7 +784,6 @@ function showPage(pageId) {
     const input = page.querySelector('.page-input');
     if (input) setTimeout(() => input.focus(), 50);
   }
-  // Discord card now shows on Others (page99)
   if (pageId === 'page99') {
     discordCard.classList.add('show');
   } else {
@@ -719,7 +832,7 @@ document.querySelectorAll('.page-input').forEach(input => {
 });
 
 document.addEventListener('click', (e) => {
-  if (terminal.classList.contains('active') && !e.target.closest('a') && !e.target.closest('button') && !e.target.closest('.music-btn') && !e.target.closest('.discord-card')) {
+  if (terminal.classList.contains('active') && !e.target.closest('a') && !e.target.closest('button') && !e.target.closest('.music-btn') && !e.target.closest('.review-btn') && !e.target.closest('.review-modal') && !e.target.closest('.discord-card')) {
     const activePage = document.querySelector('.tool-page.active');
     if (activePage) {
       const input = activePage.querySelector('.page-input');
@@ -743,6 +856,73 @@ musicBtn.addEventListener('click', (e) => {
     musicBtn.classList.add('muted');
     musicIconOn.style.display = 'none';
     musicIconOff.style.display = 'block';
+  }
+});
+
+// --- REVIEW SYSTEM ---
+const reviewOverlay = document.getElementById('reviewOverlay');
+const revName = document.getElementById('revName');
+const revRating = document.getElementById('revRating');
+const revText = document.getElementById('revText');
+
+reviewBtn.addEventListener('click', () => {
+  reviewOverlay.classList.add('active');
+});
+
+document.getElementById('btnCancelRev').addEventListener('click', () => {
+  reviewOverlay.classList.remove('active');
+});
+
+document.getElementById('btnClearRev').addEventListener('click', () => {
+  revName.value = '';
+  revRating.value = '';
+  revText.value = '';
+});
+
+document.getElementById('btnSubmitRev').addEventListener('click', async () => {
+  const name = revName.value.trim() || 'Anonymous';
+  const rating = revRating.value.trim() || 'N/A';
+  const text = revText.value.trim();
+
+  if (!text) {
+    alert("Please write a review before submitting!");
+    return;
+  }
+  
+  if (webhookUrl === "WEBHOOK HERE!!") {
+    alert("System Error: Discord Webhook not configured by admin.");
+    return;
+  }
+
+  const payload = {
+    embeds: [{
+      title: "⭐ New TubaLibrary Review",
+      color: 13934591, // Dourado
+      fields: [
+        { name: "👤 Name", value: name, inline: true },
+        { name: "📊 Rating", value: rating === 'N/A' ? 'N/A' : rating + "/10", inline: true },
+        { name: "📝 Review", value: text }
+      ],
+      timestamp: new Date().toISOString()
+    }]
+  };
+
+  try {
+    const response = await fetch(webhookUrl, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+
+    if (response.ok) {
+      alert("Review sent successfully! Thank you.");
+      revName.value = ''; revRating.value = ''; revText.value = '';
+      reviewOverlay.classList.remove('active');
+    } else {
+      alert("Error sending review.");
+    }
+  } catch (error) {
+    alert("Network error. Could not send review.");
   }
 });
 </script>
