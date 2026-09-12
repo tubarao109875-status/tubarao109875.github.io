@@ -108,6 +108,8 @@ a:hover { text-decoration:underline; }
 .grad-08-stdgrey { background-image: linear-gradient(90deg, #bfbfbf, #808080); filter: drop-shadow(0 0 5px rgba(128,128,128,0.5)); }
 .grad-09-gold { background-image: linear-gradient(90deg, #ffdf00, #b8860b); filter: drop-shadow(0 0 5px rgba(218,165,32,0.5)); }
 .grad-10-pink { background-image: linear-gradient(90deg, #ff99cc, #cc0066); filter: drop-shadow(0 0 5px rgba(204,0,102,0.5)); }
+.grad-11-yellow { background-image: linear-gradient(90deg, #ffff66, #cccc00); filter: drop-shadow(0 0 5px rgba(255,255,102,0.5)); }
+.grad-12-blue { background-image: linear-gradient(90deg, #33ffff, #0066cc); filter: drop-shadow(0 0 5px rgba(51,255,255,0.5)); }
 
 .tool-info { margin-top:10px; }
 .tool-info .gh-label { color:#d4a017; }
@@ -178,7 +180,7 @@ a:hover { text-decoration:underline; }
   z-index:100; transition: background-color 0.3s, border-color 0.3s, transform 0.15s;
 }
 .music-btn { left:20px; }
-.review-btn { left: 80px; font-size: 22px; } /* Posicionado ao lado do som */
+.review-btn { left: 80px; font-size: 22px; }
 
 .music-btn.visible, .review-btn.visible { display:flex; }
 .music-btn:hover, .review-btn:hover { transform:scale(1.08); background-color: #2a2a2a; }
@@ -241,7 +243,6 @@ a:hover { text-decoration:underline; }
 <audio id="bgMusic" loop><source src="truth yandere.mp3" type="audio/mpeg"></audio>
 
 <div class="discord-card" id="discordCard">
-  <!-- Conteúdo do Cartão do Discord Mantido Exatamente Igual -->
   <div class="dc-banner" style="background-image: url('evilsaka.gif');"></div>
   <div class="dc-avatar-wrap">
     <div class="dc-avatar" style="background-image: url('Postal tuba.png');"></div>
@@ -387,7 +388,7 @@ a:hover { text-decoration:underline; }
 ╚══███╔╝██╔══██╗██║  ██║██║██╔════╝██║ ██║██╔════╝ ██╔══██╗
   ███╔╝ ██████╔╝███████║██║███████╗███████║█████╗  ██████╔╝
  ███╔╝  ██╔═══╝ ██╔══██║██║╚════██║██╔══██║██╔══╝  ██╔══██╗
-███████╗██║     ██║  ██║██║███████║██║  ██║███████╗██║  ██║
+███████╗██║     ██║  ██║██║███████╗██║  ██║███████╗██║  ██║
 ╚══════╝╚═╝     ╚═╝  ╚═╝╚═╝╚══════╝╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝
 </pre>
     <div class="tool-info"><span class="gh-label">github:</span> <a href="https://github.com/htr-tech/zphisher" target="_blank">https://github.com/htr-tech/zphisher</a></div>
@@ -523,13 +524,13 @@ a:hover { text-decoration:underline; }
 ╚██████╗██║  ██║███████╗╚██████╗██║  ██╗███████╗██║  ██║
  ╚═════╝╚═╝  ╚═╝╚══════╝ ╚═════╝╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝
 </pre>
-    <div class="tool-info"><span class="gh-label">MediaFire:</span> <span style="color:#888;">https://www.mediafire.com/file/c6g4a0s762vhxkq/checkercpf.zip/file</span></div>
+    <div class="tool-info"><span class="gh-label">MediaFire:</span> <a href="https://www.mediafire.com/file/c6g4a0s762vhxkq/checkercpf.zip/file" target="_blank">https://www.mediafire.com/file/c6g4a0s762vhxkq/checkercpf.zip/file</a></div>
     <div class="how-to-use">
       <div class="how-label">Info how to use:</div>
       <div class="platform">Termux (Android dont work on WSL):</div>
-      <div class="cmd">termux-setup-storage(Click “Accept”)</div>
+      <div class="cmd">termux-setup-storage (Click “Accept”)</div>
       <div class="cmd">(pkg update; pkg upgrade -y; pkg install unzip -y;cd /sdcard/download;unzip checkercpf.zip;cd checkercpf;bash install; ls)</div>
-      <div class="cmd">or do thing by thing</div>
+      <div class="cmd">or do thing by thing:</div>
       <div class="cmd">pkg update</div>
       <div class="cmd">pkg upgrade -y</div>
       <div class="cmd">pkg install unzip -y</div>
@@ -537,8 +538,8 @@ a:hover { text-decoration:underline; }
       <div class="cmd">unzip checkercpf.zip</div>
       <div class="cmd">cd checkercpf</div>
       <div class="cmd">bash install</div>
-       <div class="cmd">ls</div>
-      <div class="cmd">python cherckcpf.py</div>
+      <div class="cmd">ls</div>
+      <div class="cmd">python checkercpf.py</div>
     </div>
     <div class="video-section">
       <div style="color:#00ff88; font-weight:bold; margin-bottom:6px;">Video Tutorial:</div>
@@ -685,7 +686,7 @@ a:hover { text-decoration:underline; }
     <div class="terminal-input-line"><span class="prompt">╰─&gt; ():</span><input type="text" class="terminal-input page-input" data-page="page10" autocomplete="off"></div>
   </div>
 
-  <!-- [11] UTX (yellow) -->
+  <!-- [11] UTX (Yellow) -->
   <div class="tool-page" id="page11">
 <pre class="ansi-title grad-11-yellow">
 ██╗   ██╗████████╗██╗  ██╗
@@ -702,18 +703,16 @@ a:hover { text-decoration:underline; }
       <div class="cmd">git clone https://github.com/Zian25/UniTools-Termux</div>
       <div class="cmd">cd UniTools-Termux</div>
       <div class="cmd">python utx.py</div>
-      <div class="cmd">on WSL/linux</div>
-      <div class="cmd">python utx.py</div>
     </div>
     <div class="separator">────────────────────────────────────────────</div>
     <div class="back-btn">Type <span>"back"</span> to return to menu</div>
     <div class="terminal-input-line"><span class="prompt">╰─&gt; ():</span><input type="text" class="terminal-input page-input" data-page="page11" autocomplete="off"></div>
   </div>
 
-  <!-- [12] GRABCAM (blue) -->
+  <!-- [12] GRABCAM (Blue) -->
   <div class="tool-page" id="page12">
 <pre class="ansi-title grad-12-blue">
-  ██████╗ ██████╗  █████╗ ██████╗  ██████╗ █████╗███╗   ███╗
+  ██████╗ ██████╗  █████╗ ██████╗  ██████╗ █████╗ ███╗   ███╗
 ██╔════╝ ██╔══██╗██╔══██╗██╔══██╗██╔════╝██╔══██╗████╗ ████║
 ██║  ███╗██████╔╝███████║██████╔╝██║     ███████║██╔████╔██║
 ██║   ██║██╔══██╗██╔══██║██╔══██╗██║     ██╔══██║██║╚██╔╝██║
@@ -724,7 +723,7 @@ a:hover { text-decoration:underline; }
     <div class="how-to-use">
       <div class="how-label">Info how to use:</div>
       <div class="platform">Termux and WSL/Linux:</div>
-      <div class="cmd"> pip install lolcat</div>
+      <div class="cmd">pip install lolcat</div>
       <div class="cmd">git clone https://github.com/noob-hackers/grabcam</div>
       <div class="cmd">cd grabcam</div>
       <div class="cmd">bash grabcam.sh</div>
@@ -830,7 +829,8 @@ keyInput.addEventListener('keypress', (e) => {
   if (e.key === 'Enter') checkKey();
 });
 
-const pages = ['page00','page01','page02','page03','page04','page05','page06','page07','page08','page09','page10','page99'];
+// Adicionado page11 e page12 aqui
+const pages = ['page00','page01','page02','page03','page04','page05','page06','page07','page08','page09','page10','page11','page12','page99'];
 
 function showPage(pageId) {
   mainMenu.style.display = 'none';
@@ -876,6 +876,8 @@ cmdInput.addEventListener('keypress', (e) => {
     else if (val === '8' || val === '08') showPage('page08');
     else if (val === '9' || val === '09') showPage('page09');
     else if (val === '10') showPage('page10');
+    else if (val === '11') showPage('page11'); // Adicionado
+    else if (val === '12') showPage('page12'); // Adicionado
     else if (val === '99') showPage('page99');
     cmdInput.value = '';
   }
