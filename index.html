@@ -141,6 +141,42 @@ a:hover { text-decoration:underline; }
 .req-cmd { color:#ccc; margin-left:10px; margin:3px 0; }
 .req-note { color:#888; margin-top:4px; margin-bottom:8px; }
 
+/* Python 2 Button & Page CSS */
+.py2-btn {
+  background: transparent; border: 1px solid #d4a017; color: #d4a017;
+  padding: 8px 16px; font-family: 'Ubuntu Mono', monospace; font-size: 15px; font-weight: bold;
+  border-radius: 4px; cursor: pointer; transition: 0.3s;
+}
+.py2-btn:hover { background: #d4a017; color: #000; box-shadow: 0 0 10px rgba(212,160,23,0.5); }
+
+.py2-warning {
+  color: #ff3333; font-weight: bold; font-size: 17px; margin-bottom: 20px;
+  text-shadow: 1px 1px 2px #000, 0 0 10px rgba(255, 0, 0, 0.7); line-height: 1.4;
+  border-left: 3px solid #ff3333; padding-left: 10px;
+}
+
+.copyable-block {
+  background-color: rgba(10,10,10,0.8); border-left: 2px solid #444;
+  padding: 10px; margin-bottom: 8px; cursor: pointer; transition: 0.2s;
+  font-size: 14px; position: relative; display: block; overflow-x: auto; white-space: pre-wrap;
+}
+.copyable-block:hover { background-color: rgba(30,30,30,0.9); border-left-color: #00ff88; }
+.copyable-block::after {
+  content: "Click to copy"; position: absolute; right: 10px; top: 10px;
+  font-size: 11px; color: #888; opacity: 0; transition: 0.2s;
+}
+.copyable-block:hover::after { opacity: 1; }
+.cmd-arrow { color: #d4a017; margin-right: 8px; user-select: none; }
+
+.toast-copy {
+  position: fixed; bottom: 30px; right: -300px;
+  background-color: #111; color: #00ff88; border: 1px solid #00ff88;
+  padding: 12px 20px; border-radius: 4px; font-family: 'Ubuntu Mono', monospace;
+  font-weight: bold; z-index: 9999; box-shadow: 0 0 15px rgba(0,255,136,0.2);
+  transition: right 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+.toast-copy.show { right: 30px; }
+
 /* Discord Card Styles */
 .discord-card {
   position:fixed; top:40px; right:40px; width:340px; background-color:#111214; border-radius:12px;
@@ -224,6 +260,9 @@ a:hover { text-decoration:underline; }
 </style>
 </head>
 <body>
+
+<!-- Toast Notification para Cópia -->
+<div id="toastCopy" class="toast-copy">Copied text ✔️</div>
 
 <div class="copyright-screen" id="copyrightScreen">
   <h2>Everything on this site is copyright of Tubarao109875</h2>
@@ -358,14 +397,27 @@ a:hover { text-decoration:underline; }
   <!-- [00] Required Tools -->
   <div class="tool-page" id="page00">
     <div class="info-page-title">╔══ REQUIRED TOOLS ══╗</div>
-    <div class="req-section-title">WSL / Linux</div>
-    <div class="req-cmd">sudo apt install git</div>
-    <div class="req-cmd">sudo apt install python3</div>
-    <div class="req-cmd">sudo apt install php</div>
-    <div class="req-section-title">Termux</div>
-    <div class="req-cmd">pkg install git</div>
-    <div class="req-cmd">pkg install python3</div>
-    <div class="req-cmd">pkg install php</div>
+    
+    <!-- FLEXBOX PARA DEIXAR O BOTAO PYTHON2 NA DIREITA -->
+    <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap;">
+      <div>
+        <div class="req-section-title">WSL / Linux</div>
+        <div class="req-cmd">sudo apt install git</div>
+        <div class="req-cmd">sudo apt install python3</div>
+        <div class="req-cmd">sudo apt install php</div>
+
+        <div class="req-section-title">Termux</div>
+        <div class="req-cmd">pkg install git</div>
+        <div class="req-cmd">pkg install python</div>
+        <div class="req-cmd">pkg install php</div>
+      </div>
+      
+      <!-- BOTÃO PYTHON 2 -->
+      <div style="margin-top: 14px;">
+        <button class="py2-btn" onclick="showPage('pagePy2')">python2</button>
+      </div>
+    </div>
+
     <div class="separator">════════════════════════════════════════════════</div>
     <div class="req-section-title">Where to install</div>
     <div class="info-item"><span class="il">Termux:</span> <span class="iv"><a href="https://github.com/termux/termux-app/releases/tag/v0.118.3" target="_blank">https://github.com/termux/termux-app/releases/tag/v0.118.3</a></span></div>
@@ -381,6 +433,111 @@ a:hover { text-decoration:underline; }
     <div class="terminal-input-line"><span class="prompt">╰─&gt; ():</span><input type="text" class="terminal-input page-input" data-page="page00" autocomplete="off"></div>
   </div>
 
+  <!-- [PY2] PAGINA DO PYTHON 2 (Acessada pelo Botão) -->
+  <div class="tool-page" id="pagePy2">
+    <div class="info-page-title">╔══ PYTHON 2 INSTALLATION ══╗</div>
+    
+    <p class="py2-warning">
+      WARNING: Python 2 is no longer officially supported for WSL and Linux (only Termux), 
+      but there is still a way to download it using the script below.
+    </p>
+
+    <!-- BLOCOS DE CÓDIGO COPIÁVEIS -->
+    <div class="copyable-block" onclick="copyToClipboard(this)" data-cmd="sudo apt update">
+      <span class="cmd-arrow">&gt;</span>sudo apt update
+    </div>
+
+    <div class="copyable-block" onclick="copyToClipboard(this)" data-cmd="sudo apt install -y \
+  build-essential \
+  curl \
+  git \
+  libssl-dev \
+  zlib1g-dev \
+  libbz2-dev \
+  libreadline-dev \
+  libsqlite3-dev \
+  libncurses5-dev \
+  libncursesw5-dev \
+  xz-utils \
+  tk-dev \
+  libffi-dev \
+  liblzma-dev \
+  ca-certificates">
+      <span class="cmd-arrow">&gt;</span>sudo apt install -y \
+  build-essential \
+  curl \
+  git \
+  libssl-dev \
+  zlib1g-dev \
+  libbz2-dev \
+  libreadline-dev \
+  libsqlite3-dev \
+  libncurses5-dev \
+  libncursesw5-dev \
+  xz-utils \
+  tk-dev \
+  libffi-dev \
+  liblzma-dev \
+  ca-certificates
+    </div>
+
+    <div class="copyable-block" onclick="copyToClipboard(this)" data-cmd="curl https://pyenv.run | bash">
+      <span class="cmd-arrow">&gt;</span>curl https://pyenv.run | bash
+    </div>
+
+    <div class="copyable-block" onclick="copyToClipboard(this)" data-cmd="echo 'export PYENV_ROOT=&quot;$HOME/.pyenv&quot;' >> ~/.bashrc">
+      <span class="cmd-arrow">&gt;</span>echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.bashrc
+    </div>
+
+    <div class="copyable-block" onclick="copyToClipboard(this)" data-cmd="echo '[[ -d $PYENV_ROOT/bin ]] && export PATH=&quot;$PYENV_ROOT/bin:$PATH&quot;' >> ~/.bashrc">
+      <span class="cmd-arrow">&gt;</span>echo '[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.bashrc
+    </div>
+
+    <div class="copyable-block" onclick="copyToClipboard(this)" data-cmd="echo 'eval &quot;$(pyenv init - bash)&quot;' >> ~/.bashrc">
+      <span class="cmd-arrow">&gt;</span>echo 'eval "$(pyenv init - bash)"' >> ~/.bashrc
+    </div>
+
+    <div class="copyable-block" onclick="copyToClipboard(this)" data-cmd="source ~/.bashrc">
+      <span class="cmd-arrow">&gt;</span>source ~/.bashrc
+    </div>
+
+    <div class="copyable-block" onclick="copyToClipboard(this)" data-cmd="pyenv --version">
+      <span class="cmd-arrow">&gt;</span>pyenv --version
+    </div>
+
+    <div class="copyable-block" onclick="copyToClipboard(this)" data-cmd="pyenv install 2.7.18">
+      <span class="cmd-arrow">&gt;</span>pyenv install 2.7.18
+    </div>
+
+    <div class="copyable-block" onclick="copyToClipboard(this)" data-cmd="pyenv global system">
+      <span class="cmd-arrow">&gt;</span>pyenv global system
+    </div>
+
+    <div class="copyable-block" onclick="copyToClipboard(this)" data-cmd="python3 --version">
+      <span class="cmd-arrow">&gt;</span>python3 --version
+    </div>
+
+    <div class="copyable-block" onclick="copyToClipboard(this)" data-cmd="~/.pyenv/versions/2.7.18/bin/python --version">
+      <span class="cmd-arrow">&gt;</span>~/.pyenv/versions/2.7.18/bin/python --version
+    </div>
+
+    <div class="copyable-block" onclick="copyToClipboard(this)" data-cmd="curl -o /tmp/get-pip.py https://bootstrap.pypa.io/pip/2.7/get-pip.py">
+      <span class="cmd-arrow">&gt;</span>curl -o /tmp/get-pip.py https://bootstrap.pypa.io/pip/2.7/get-pip.py
+    </div>
+
+    <div class="copyable-block" onclick="copyToClipboard(this)" data-cmd="python2 /tmp/get-pip.py">
+      <span class="cmd-arrow">&gt;</span>python2 /tmp/get-pip.py
+    </div>
+
+    <div class="copyable-block" onclick="copyToClipboard(this)" data-cmd="python2 -m pip --version">
+      <span class="cmd-arrow">&gt;</span>python2 -m pip --version
+    </div>
+
+    <div class="separator">────────────────────────────────────────────</div>
+    <div class="back-btn">Type <span>"back"</span> to return to menu</div>
+    <div class="terminal-input-line"><span class="prompt">╰─&gt; ():</span><input type="text" class="terminal-input page-input" data-page="pagePy2" autocomplete="off"></div>
+  </div>
+
   <!-- [01] Zphisher (Orange) -->
   <div class="tool-page" id="page01">
 <pre class="ansi-title grad-01-orange">
@@ -388,7 +545,7 @@ a:hover { text-decoration:underline; }
 ╚══███╔╝██╔══██╗██║  ██║██║██╔════╝██║ ██║██╔════╝ ██╔══██╗
   ███╔╝ ██████╔╝███████║██║███████╗███████║█████╗  ██████╔╝
  ███╔╝  ██╔═══╝ ██╔══██║██║╚════██║██╔══██║██╔══╝  ██╔══██╗
-███████╗██║     ██║  ██║██║███████╗██║  ██║███████╗██║  ██║
+███████╗██║     ██║  ██║██║███████║██║  ██║███████╗██║  ██║
 ╚══════╝╚═╝     ╚═╝  ╚═╝╚═╝╚══════╝╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝
 </pre>
     <div class="tool-info"><span class="gh-label">github:</span> <a href="https://github.com/htr-tech/zphisher" target="_blank">https://github.com/htr-tech/zphisher</a></div>
@@ -829,8 +986,8 @@ keyInput.addEventListener('keypress', (e) => {
   if (e.key === 'Enter') checkKey();
 });
 
-// Adicionado page11 e page12 aqui
-const pages = ['page00','page01','page02','page03','page04','page05','page06','page07','page08','page09','page10','page11','page12','page99'];
+// Adicionado pagePy2 na lista de páginas!
+const pages = ['page00','page01','page02','page03','page04','page05','page06','page07','page08','page09','page10','page11','page12','page99', 'pagePy2'];
 
 function showPage(pageId) {
   mainMenu.style.display = 'none';
@@ -876,8 +1033,8 @@ cmdInput.addEventListener('keypress', (e) => {
     else if (val === '8' || val === '08') showPage('page08');
     else if (val === '9' || val === '09') showPage('page09');
     else if (val === '10') showPage('page10');
-    else if (val === '11') showPage('page11'); // Adicionado
-    else if (val === '12') showPage('page12'); // Adicionado
+    else if (val === '11') showPage('page11'); 
+    else if (val === '12') showPage('page12'); 
     else if (val === '99') showPage('page99');
     cmdInput.value = '';
   }
@@ -894,7 +1051,7 @@ document.querySelectorAll('.page-input').forEach(input => {
 });
 
 document.addEventListener('click', (e) => {
-  if (terminal.classList.contains('active') && !e.target.closest('a') && !e.target.closest('button') && !e.target.closest('.music-btn') && !e.target.closest('.review-btn') && !e.target.closest('.review-modal') && !e.target.closest('.discord-card')) {
+  if (terminal.classList.contains('active') && !e.target.closest('a') && !e.target.closest('button') && !e.target.closest('.music-btn') && !e.target.closest('.review-btn') && !e.target.closest('.review-modal') && !e.target.closest('.discord-card') && !e.target.closest('.copyable-block')) {
     const activePage = document.querySelector('.tool-page.active');
     if (activePage) {
       const input = activePage.querySelector('.page-input');
@@ -920,6 +1077,25 @@ musicBtn.addEventListener('click', (e) => {
     musicIconOff.style.display = 'block';
   }
 });
+
+// --- FUNÇÃO PARA COPIAR CÓDIGO (NOVO) ---
+function copyToClipboard(element) {
+  // Pega apenas o comando cru do atributo data-cmd
+  const textToCopy = element.getAttribute('data-cmd');
+  
+  navigator.clipboard.writeText(textToCopy).then(() => {
+    // Mostra o Toast de sucesso
+    const toast = document.getElementById('toastCopy');
+    toast.classList.add('show');
+    
+    // Remove o Toast depois de 2.5 segundos
+    setTimeout(() => {
+      toast.classList.remove('show');
+    }, 2500);
+  }).catch(err => {
+    console.error('Falha ao copiar:', err);
+  });
+}
 
 // --- REVIEW SYSTEM ---
 const reviewOverlay = document.getElementById('reviewOverlay');
@@ -959,7 +1135,7 @@ document.getElementById('btnSubmitRev').addEventListener('click', async () => {
   const payload = {
     embeds: [{
       title: "⭐ New TubaLibrary Review",
-      color: 13934591, // Dourado
+      color: 13934591, 
       fields: [
         { name: "👤 Name", value: name, inline: true },
         { name: "📊 Rating", value: rating === 'N/A' ? 'N/A' : rating + "/10", inline: true },
